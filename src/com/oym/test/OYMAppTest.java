@@ -61,6 +61,8 @@ public class OYMAppTest {
 		    
 			System.out.println("=============================");
 			
+			sc.nextLine();
+			
 			String main = "";
 			main += "<<OYM : 맛집 검색 서비스>>\n";
 			main += "번호를 선택하세요\n";
