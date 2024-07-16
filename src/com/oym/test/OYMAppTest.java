@@ -14,8 +14,57 @@ public class OYMAppTest {
 		CustomerServiceImpl mgr = CustomerServiceImpl.getInstance();
 		//싱글톤
 		
+        
+		
 		mainWhile : while(true) //main 표시
 		{
+			System.out.println("");
+			System.out.println("=============================");
+			System.out.println("");
+			
+			String[] O = {
+	            "  ####  ",
+	            " #    # ",
+	            "#      #",
+	            "#      #",
+	            "#      #",
+	            " #    # ",
+	            "  ####  "
+	        };
+
+	        String[] Y = {
+	            "#     #",
+	            " #   # ",
+	            "  # #  ",
+	            "   #   ",
+	            "   #   ",
+	            "   #   ",
+	            "   #   "
+	        };
+
+	        String[] M = {
+	            "#     #",
+	            "##   ##",
+	            "# # # #",
+	            "#  #  #",
+	            "#     #",
+	            "#     #",
+	            "#     #"
+	        };
+
+	        for (int i = 0; i < O.length; i++) {
+	            System.out.println(O[i] + "  " + Y[i] + "  " + M[i]);
+	        }
+	        
+			System.out.println("                  ");                     
+			System.out.println("           /\\_/\\");                     
+		    System.out.println("          ( o.o ) ");
+		    System.out.println("           > ^ <  ");
+		    
+			System.out.println("");
+			System.out.println("=============================");
+			System.out.println("");
+			
 			String main = "";
 			main += "<<OYM : 맛집 검색 서비스>>\n";
 			main += "번호를 선택하세요\n";
@@ -187,7 +236,9 @@ public class OYMAppTest {
 				}//for
 			case 2:
 				System.out.println("<<회원가입>>");
-				System.out.println("");
+				System.out.println("ID 입력 : ");
+				String registerId = sc.next();
+				
 
 
 			}//mainSwitch
