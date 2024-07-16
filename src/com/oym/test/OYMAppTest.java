@@ -1,10 +1,14 @@
 package com.oym.test;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import com.oym.service.CustomerServiceImpl;
 import com.oym.vo.Customer;
+import com.oym.vo.Restaurant;
 
 public class OYMAppTest {
 	
@@ -227,7 +231,20 @@ public class OYMAppTest {
 				break recommendSwitch;
 			case 3:
 				System.out.println("<< 리뷰 내 별점 높은 순으로 맛집 추천 >>");
-				System.out.println(mgr.recommendRestaurantByRating());
+				Map<Restaurant, Double> m = mgr.recommendRestaurantByRating();
+				List<Restaurant> keySet = new ArrayList<>(m.keySet());
+
+		        // Value 값으로 오름차순 정렬
+		        keySet.sort(new Comparator<Restaurant>() {
+		            @Override
+		            public int compare(Restaurant r1, Restaurant r2) {
+		                return m.get(r2).compareTo(m.get(r1));
+		            }
+		        });
+		        for (Restaurant key : keySet) {
+		            System.out.print(key);
+		            System.out.println("별점 : " + String.format("%.1f", m.get(key)) );
+		        }
 				break recommendSwitch;
 			case 4:
 				System.out.println("<<리뷰 많은 순으로 맛집 추천>>");

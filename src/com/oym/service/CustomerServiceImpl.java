@@ -26,12 +26,12 @@ public class CustomerServiceImpl implements CustomerService{
 			add(new Review("집에가고싶어요", 5, "만리성"));//3.2
 		}}, null));
 		add(new ChiRestaurant("광한루", "02-222-4444", "월곡동", 900, 2200, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 1, "광한루");
-			new Review("맛있어요", 3, "광한루");
-			new Review("재미있어요", 2, "광한루");
-			new Review("별로에요", 5, "광한루");
-			new Review("집에가고싶어요", 5, "광한루");
-			new Review("집에가고싶어요", 4, "광한루");
+			add(new Review("아주 좋아요", 1, "광한루"));
+			add(new Review("맛있어요", 3, "광한루"));
+			add(new Review("재미있어요", 2, "광한루"));
+			add(new Review("별로에요", 5, "광한루"));
+			add(new Review("집에가고싶어요", 5, "광한루"));
+			add(new Review("집에가고싶어요", 4, "광한루"));
 		}}, null));
 		add(new JapRestaurant("갓덴스시", "02-444-5555", "삼성동", 1100, 2100, new ArrayList<Review>(){{
 			add(new Review("아주 좋아요", 1, "갓덴스시"));
@@ -243,7 +243,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<Restaurant> recommendRestaurantByRating() {
+	public Map<Restaurant, Double> recommendRestaurantByRating() {
 		List<Restaurant> raRestaurants = new ArrayList();
 		Map<Restaurant, Double> raRestaurant = new HashMap<Restaurant, Double>();
 		for(Restaurant r : restaurants) {
@@ -257,26 +257,17 @@ public class CustomerServiceImpl implements CustomerService{
 			}
 			raRestaurant.put(restaurants.get(i), raRestaurant.get(restaurants.get(i))/sum);
 		}
-		List<Restaurant> keySet = new ArrayList<>(raRestaurant.keySet());
-
-        // Value 값으로 오름차순 정렬
-        keySet.sort(new Comparator<Restaurant>() {
-            @Override
-            public int compare(Restaurant r1, Restaurant r2) {
-                return raRestaurant.get(r2).compareTo(raRestaurant.get(r1));
-            }
-        });
-		return keySet;
+		return raRestaurant;
 	}
 
 	@Override
 	public List<Restaurant> recommendRestaurantByReviews() {
-		List<Restaurant> reRestaurants = new ArrayList();
+		List<Restaurant> reRestaurants = restaurants;
 		Collections.sort(reRestaurants, new Comparator<Restaurant>() {
 
 			@Override
 			public int compare(Restaurant r1, Restaurant r2) {
-				return r2.getMenus().size() - r2.getMenus().size();
+				return r2.getReviews().size() - r1.getReviews().size();
 			}
 			
 		});

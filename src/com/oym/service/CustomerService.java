@@ -2,6 +2,7 @@ package com.oym.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.oym.vo.Customer;
 import com.oym.vo.Restaurant;
@@ -74,7 +75,7 @@ public interface CustomerService {
 	 * 리뷰에 작성된 별점들의 평균이 높은순으로 맛집을 추천해주는 기능
 	 * @return 리뷰에 작성된 별점들의 평균이 높은순으로 정렬된 맛집 리스트
 	 * */
-	List<Restaurant> recommendRestaurantByRating();
+	Map<Restaurant, Double> recommendRestaurantByRating();
 	/**
 	 * 작성된 리뷰가 많은 순으로 맛집을 추천해주는 기능
 	 * @return 작성된 리뷰가 많은 순으로 정렬된 맛집 리스트
