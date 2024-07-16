@@ -77,32 +77,61 @@ public class CustomerServiceImpl implements CustomerService{
 	//메뉴 작성 추후에
 		
 	}};
-	private static CustomerServiceImpl service = new CustomerServiceImpl();
-	private CustomerServiceImpl(){ // 싱글톤 작성
-		
-	}
 	
-	public static CustomerServiceImpl getInstance() {
+	private static CustomerServiceImpl service = new CustomerServiceImpl();
+	
+	private CustomerServiceImpl(){ }
+	
+	static CustomerServiceImpl getInstance() {
 		return service;
 	}
+	
+	ArrayList<Customer> customers = new ArrayList<>();
+	
 
 	@Override
 	public void register(Customer customer) {
+		customers.add(customer);
 		
 	}
 
 	@Override
 	public Customer findCustomer(String id) {
-		return null;
+		
+		Customer c = null;
+		for(Customer tmp : customers) {
+			if( tmp.getId() == id) {
+				c = tmp;
+				break;
+			}
+		}
+		
+		return c;
 	}
 
 	@Override
 	public void updateCustomer(Customer user) {
+
+		for(int i=0; i<customers.size(); i++) {
+			if( customers.get(i).getId() == user.getId()) {
+				customers.get(i).changeAddress(user.getAddress());
+				customers.get(i).changePw(user.getPw());
+				customers.get(i).changeFavorite(user.getFavorite());
+				break;
+			}
+		}
 		
 	}
 
 	@Override
 	public void deleteCustomer(String id) {
+		
+		for(int i=0; i<customers.size(); i++) {
+			if(customers.get(i).getId() == id) {
+				customers.remove(i);
+				break;
+			}
+		}
 		
 	}
 
@@ -178,7 +207,6 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public Restaurant[] recommendRestaurantByGender(Customer customer) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
