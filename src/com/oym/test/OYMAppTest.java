@@ -92,7 +92,7 @@ public class OYMAppTest {
 					register();//회원가입	
 					break;
 				default : 	
-					System.out.println("유효하지 않은 입니다.");
+					System.out.println("유효하지 않은 입력입니다.");
 					break;
 					
 			}//mainSwith			
@@ -144,7 +144,7 @@ public class OYMAppTest {
 						updateCustomer(customer);
 						break;
 					default : 	
-						System.out.println("유효하지 않은 입니다.");
+						System.out.println("유효하지 않은 입력입니다.");
 						break;	
 
 					}//menuSwitch
@@ -204,7 +204,7 @@ public class OYMAppTest {
 				System.out.println(mgr.findRestaurantByName(name));
 				break findSwitch;
 			default : 	
-				System.out.println("유효하지 않은 입니다.");
+				System.out.println("유효하지 않은 입력입니다.");
 				break;	
 			}//findSwitch
 		}//findWhile
@@ -265,7 +265,7 @@ public class OYMAppTest {
 				break recommendSwitch;
 				
 			default : 	
-				System.out.println("유효하지 않은 입니다.");
+				System.out.println("유효하지 않은 입력입니다.");
 				break;
 				
 			}//recommendSwitch
@@ -328,7 +328,7 @@ public class OYMAppTest {
 				break;
 				
 			default : 	
-				System.out.println("유효하지 않은 입니다.");
+				System.out.println("유효하지 않은 입력입니다.");
 				break;
 				
 			}//userSwitch
@@ -398,7 +398,7 @@ public class OYMAppTest {
 					break;
 				
 				default : 	
-					System.out.println("유효하지 않은 입니다.");
+					System.out.println("유효하지 않은 입력입니다.");
 					break;
 					
 			}//registerSwitch
