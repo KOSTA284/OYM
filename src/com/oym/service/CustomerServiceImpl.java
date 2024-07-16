@@ -161,12 +161,16 @@ public class CustomerServiceImpl implements CustomerService{
 		switch(category) {
 		case "한식": 
 			for(Restaurant r : restaurants) { if(r instanceof KorRestaurant) t.add(r);}
+			break;
 		case "일식": 
 			for(Restaurant r : restaurants) { if(r instanceof JapRestaurant) t.add(r);}
+			break;
 		case "양식": 
 			for(Restaurant r : restaurants) { if(r instanceof WesRestaurant) t.add(r);}
+			break;
 		case "중식": 
 			for(Restaurant r : restaurants) { if(r instanceof ChiRestaurant) t.add(r);}
+			break;
 		}
 		return t;
 	}
