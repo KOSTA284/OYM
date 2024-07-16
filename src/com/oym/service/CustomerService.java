@@ -56,8 +56,9 @@ public interface CustomerService {
 	 * 사용자가 궁금해하는 가게이름이 포함된 맛집들을 보여주는 기능
 	 * @return 사용자가 궁금해하는 가게이름이 포함된 맛집들의 리스트
 	 * @param 사용자가 검색한 가게이름
+	 * @throws NothingException 
 	 * */
-	ArrayList<Restaurant> findRestaurantByName(String name );
+	ArrayList<Restaurant> findRestaurantByName(String name ) throws NothingException;
 	
 	
 	/**

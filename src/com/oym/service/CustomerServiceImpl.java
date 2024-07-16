@@ -233,11 +233,11 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public ArrayList<Restaurant> findRestaurantByName(String name) {
+	public ArrayList<Restaurant> findRestaurantByName(String name) throws NothingException{
 		ArrayList<Restaurant> t= new ArrayList<Restaurant>();
 		for(Restaurant r : restaurants) {
 			if(r.getName().contains(name)) t.add(r);
-		}
+		}if(t.isEmpty()) throw new NothingException();
 		return t;
 	}
 
