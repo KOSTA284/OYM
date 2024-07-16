@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.oym.exception.NothingException;
 import com.oym.vo.Customer;
 import com.oym.vo.Restaurant;
 
@@ -48,8 +49,9 @@ public interface CustomerService {
 	 * 사용자가 궁금해하는 지역에 속하는 맛집들을 보여주는 기능
 	 * @return 사용자가 궁금해하는 지역에 속하는 맛집들의 리스트
 	 * @param 사용자가 검색한 지역
+	 * @throws NothingException 
 	 * */
-	ArrayList<Restaurant> findRestaurantByLocation(String location);
+	ArrayList<Restaurant> findRestaurantByLocation(String location) throws NothingException;
 	/**
 	 * 사용자가 궁금해하는 가게이름이 포함된 맛집들을 보여주는 기능
 	 * @return 사용자가 궁금해하는 가게이름이 포함된 맛집들의 리스트

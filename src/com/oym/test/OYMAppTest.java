@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-
+import com.oym.exception.NothingException;
 import com.oym.service.CustomerServiceImpl;
 import com.oym.vo.Customer;
 import com.oym.vo.Restaurant;
@@ -186,7 +186,10 @@ public class OYMAppTest {
 				System.out.println("<<장소로 맛집 검색 (~동)>>");
 				System.out.println("검색할 장소 입력 : ");
 				String location = sc.next();
-				System.out.println(mgr.findRestaurantByLocation(location));
+				try {
+					System.out.println(mgr.findRestaurantByLocation(location));
+				} 
+				catch (NothingException e) {System.out.println();}
 				break findSwitch;
 			case 4:
 				System.out.println("<<식당 이름으로 맛집 검색>>");

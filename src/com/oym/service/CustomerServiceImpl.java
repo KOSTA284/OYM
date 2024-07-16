@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.oym.exception.NothingException;
 import com.oym.vo.ChiRestaurant;
 import com.oym.vo.Customer;
 import com.oym.vo.JapRestaurant;
@@ -178,11 +179,12 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public ArrayList<Restaurant> findRestaurantByLocation(String location) {
+	public ArrayList<Restaurant> findRestaurantByLocation (String location) throws NothingException{
 		ArrayList<Restaurant> t= new ArrayList<Restaurant>();
 		for(Restaurant r : restaurants) {
 			if(r.getLocation().equals(location)) t.add(r);
 		}
+		if(t.isEmpty()) throw new NothingException();
 		return t;
 	}
 
