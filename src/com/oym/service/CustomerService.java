@@ -20,8 +20,8 @@ public interface CustomerService {
 	
 	List<Restaurant> recommendRestaurantByAddress(Customer customer);
 	List<Restaurant> recommendRestaurantByCategory(Customer customer);
-	List<Restaurant> recommendRestaurantByRating(Customer customer);
-	List<Restaurant> recommendRestaurantByReviews(Customer customer);
+	List<Restaurant> recommendRestaurantByRating();
+	List<Restaurant> recommendRestaurantByReviews();
 	List<Restaurant> recommendRestaurantByGender(Customer customer);
 	List<Restaurant> recommendRestaurantByAge(Customer customer);
 

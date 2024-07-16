@@ -243,7 +243,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<Restaurant> recommendRestaurantByRating(Customer customer) {
+	public List<Restaurant> recommendRestaurantByRating() {
 		List<Restaurant> raRestaurants = new ArrayList();
 		Map<Restaurant, Double> raRestaurant = new HashMap<Restaurant, Double>();
 		for(Restaurant r : restaurants) {
@@ -270,7 +270,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<Restaurant> recommendRestaurantByReviews(Customer customer) {
+	public List<Restaurant> recommendRestaurantByReviews() {
 		List<Restaurant> reRestaurants = new ArrayList();
 		Collections.sort(reRestaurants, new Comparator<Restaurant>() {
 
