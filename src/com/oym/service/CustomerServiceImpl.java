@@ -219,16 +219,17 @@ public class CustomerServiceImpl implements CustomerService{
 			switch (customer.getFavorite()) {
 			case "한식": {
 				if(restaurant instanceof KorRestaurant) cRestaurants.add(restaurant);
+				break;
 			}case "중식": {
 				if(restaurant instanceof ChiRestaurant) cRestaurants.add(restaurant);
+				break;
 			}case "일식": {
 				if(restaurant instanceof JapRestaurant) cRestaurants.add(restaurant);
+				break;
 			}case "양식": {
 				if(restaurant instanceof WesRestaurant) cRestaurants.add(restaurant);
-			}
-			default:
-				throw new IllegalArgumentException("Unexpected value: ");
-			}
+				break;
+			}}
 		}
 		Collections.sort(cRestaurants, new Comparator<Restaurant>() {
 
