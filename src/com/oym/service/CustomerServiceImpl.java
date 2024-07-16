@@ -5,8 +5,14 @@ import com.oym.vo.Restaurant;
 
 public class CustomerServiceImpl implements CustomerService{
 	
-	CustomerServiceImpl(){ // 싱글톤 작성
+	private static CustomerServiceImpl service = new CustomerServiceImpl();
+	
+	private CustomerServiceImpl(){ // 싱글톤 작성
 		
+	}
+	
+	public static CustomerServiceImpl getInstance() {
+		return service;
 	}
 
 	@Override
