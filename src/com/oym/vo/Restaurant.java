@@ -24,6 +24,19 @@ public abstract class Restaurant {
 	}
 	
 	
+	public Restaurant(String name, String tel, String location, int openTime, int closeTime, ArrayList<Review> reviews,
+			ArrayList<Menu> menus) {
+		super();
+		this.name = name;
+		this.tel = tel;
+		this.location = location;
+		this.openTime = openTime;
+		this.closeTime = closeTime;
+		this.reviews = reviews;
+		this.menus = menus;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -49,5 +62,22 @@ public abstract class Restaurant {
 		this.closeTime = closeTime;
 	}
 
+
+	public ArrayList<Review> getReviews() {
+		return reviews;
+	}
+
+
+	public ArrayList<Menu> getMenus() {
+		return menus;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Restaurant [name=" + name + ", tel=" + tel + ", location=" + location + ", openTime=" + openTime
+				+ ", closeTime=" + closeTime + ", reviews=" + reviews.toString() + ", menus=" + menus.toString() + "]"+ "\n";
+	}
+	
 
 }
