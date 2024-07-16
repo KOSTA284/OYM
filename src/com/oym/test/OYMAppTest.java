@@ -86,12 +86,13 @@ public class OYMAppTest {
 					
 				case 1:	
 					login(); //로그인
+					break;
 					
 				case 2 : 
 					register();//회원가입	
+					break;
 					
 			}//mainSwith			
-
 		}//mainWhile
 	}//main
 
@@ -103,6 +104,7 @@ public class OYMAppTest {
 		String id = sc.next();
 		System.out.println("PW 입력 : ");
 		String pw = sc.next();
+		sc.nextLine(); // 입력 버퍼 제거
 		
 		List<Customer> customerList = mgr.getAllCustomer();
 		
@@ -143,7 +145,6 @@ public class OYMAppTest {
 				}//menuWhile
 			}//if
 		}//for
-		
 	}
 	
 	public static void searchRestaurant() {
