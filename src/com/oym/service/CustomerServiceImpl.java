@@ -107,23 +107,53 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Restaurant[] findAllRestaurant() {
-		return null;
+	public ArrayList<Restaurant> findAllRestaurant() {
+		
+		return restaurants;
 	}
 
 	@Override
-	public Restaurant[] findRestaurantByCategory(String category) {
-		return null;
+	// 한식,양식,중식 입력받아서 해당하는 레스토랑 리스트 리턴
+	public ArrayList<Restaurant> findRestaurantByCategory(String category) {
+		ArrayList<Restaurant> t= new ArrayList<Restaurant>();
+		switch(category) {
+		case "한식": 
+			for(Restaurant r : restaurants) {
+				if(r instanceof Korean) t.add(r);
+			}
+		case "일식": 
+			for(Restaurant r : restaurants) {
+				if(r instanceof Japanese) t.add(r);
+			}
+		case "양식": 
+			for(Restaurant r : restaurants) {
+				if(r instanceof Western) t.add(r);
+			}
+		case "중식": 
+			for(Restaurant r : restaurants) {
+				if(r instanceof Chinese) t.add(r);
+			}
+			
+		}
+		return t;
 	}
 
 	@Override
-	public Restaurant[] findRestaurantByLocation(String location) {
-		return null;
+	public ArrayList<Restaurant> findRestaurantByLocation(String location) {
+		ArrayList<Restaurant> t= new ArrayList<Restaurant>();
+		for(Restaurant r : restaurants) {
+			if(r.getLocation().equals(location)) t.add(r);
+		}
+		return t;
 	}
 
 	@Override
-	public Restaurant findRestaurantByName(String name) {
-		return null;
+	public ArrayList<Restaurant> findRestaurantByName(String name) {
+		ArrayList<Restaurant> t= new ArrayList<Restaurant>();
+		for(Restaurant r : restaurants) {
+			if(r.getName().contains(name)) t.add(r);
+		}
+		return t;
 	}
 
 	@Override
