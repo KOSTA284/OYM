@@ -64,14 +64,16 @@ public interface CustomerService {
 	 * 사용자가 회원가입했을때 입력한 주소 근처의 맛집들을 추천해주는 기능
 	 * @param 로그인한 사용자의 정보
 	 * @return 사용자 근처의 맛집 리스트
+	 * @throws NothingException 
 	 * */
-	List<Restaurant> recommendRestaurantByAddress(Customer customer);
+	List<Restaurant> recommendRestaurantByAddress(Customer customer) throws NothingException;
 	/**
 	 * 사용자가 선호하는 종류의 맛집들을 추천해주는 기능
 	 * @param 로그인한 사용자의 정보
 	 * @return 사용자가 선호하는 종류의 맛집 리스트
+	 * @throws NothingException 
 	 * */
-	List<Restaurant> recommendRestaurantByCategory(Customer customer);
+	List<Restaurant> recommendRestaurantByCategory(Customer customer) throws NothingException;
 
 	/**
 	 * 리뷰에 작성된 별점들의 평균이 높은순으로 맛집을 추천해주는 기능

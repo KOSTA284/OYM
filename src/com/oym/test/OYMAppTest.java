@@ -236,11 +236,19 @@ public class OYMAppTest {
 				return;
 			case 1:
 				System.out.println("<< ["+ customer.getAddress()+ "]에서 가까운 맛집 추천 리스트 >>");
-				System.out.println(mgr.recommendRestaurantByAddress(customer));
+				try {
+					System.out.println(mgr.recommendRestaurantByAddress(customer));
+				} catch (NothingException e) {
+					e.getMessage();
+				}
 				break recommendSwitch;
 			case 2:
 				System.out.println("<< 내가 가장 좋아하는 ["  + customer.getFavorite()  +"] 맛집 추천 >>");
-				System.out.println(mgr.recommendRestaurantByCategory(customer));
+				try {
+					System.out.println(mgr.recommendRestaurantByCategory(customer));
+				} catch (NothingException e) {
+					e.getMessage();
+				}
 				break recommendSwitch;
 			case 3:
 				System.out.println("<< 리뷰 내 별점 높은 순으로 맛집 추천 >>");

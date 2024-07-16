@@ -198,11 +198,13 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<Restaurant> recommendRestaurantByAddress(Customer customer) {
+	public List<Restaurant> recommendRestaurantByAddress(Customer customer) throws NothingException {
 		List<Restaurant> aRestaurants = new ArrayList();
 		for(Restaurant restaurant : restaurants) {
 			if(restaurant.getLocation().equals(customer.getAddress())) aRestaurants.add(restaurant);
 		}
+		if(aRestaurants.isEmpty()) throw new NothingException(customer.getAddress() + "에는 맛집이 없습니다.");
+		
 		Collections.sort(aRestaurants, new Comparator<Restaurant>() {
 
 			@Override
@@ -215,7 +217,7 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public List<Restaurant> recommendRestaurantByCategory(Customer customer) {
+	public List<Restaurant> recommendRestaurantByCategory(Customer customer) throws NothingException {
 		List<Restaurant> cRestaurants = new ArrayList();
 		for(Restaurant restaurant : restaurants) {
 			switch (customer.getFavorite()) {
@@ -233,6 +235,8 @@ public class CustomerServiceImpl implements CustomerService{
 				break;
 			}}
 		}
+		if(cRestaurants.isEmpty()) throw new NothingException(customer.getFavorite() + "집이 존재하지 않습니다.");
+		
 		Collections.sort(cRestaurants, new Comparator<Restaurant>() {
 
 			@Override
