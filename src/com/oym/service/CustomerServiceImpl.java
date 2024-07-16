@@ -3,7 +3,9 @@ package com.oym.service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.oym.vo.ChiRestaurant;
 import com.oym.vo.Customer;
@@ -17,11 +19,11 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	private ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(){{
 		add(new ChiRestaurant("만리성", "02-111-2222", "관철동", 1000, 2100, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 1, "만리성");
-			new Review("맛있어요", 3, "만리성");
-			new Review("재미있어요", 2, "만리성");
-			new Review("별로에요", 5, "만리성");
-			new Review("집에가고싶어요", 5, "만리성");
+			add(new Review("아주 좋아요", 1, "만리성"));
+			add(new Review("맛있어요", 3, "만리성"));
+			add(new Review("재미있어요", 2, "만리성"));
+			add(new Review("별로에요", 5, "만리성"));
+			add(new Review("집에가고싶어요", 5, "만리성"));//3.2
 		}}, null));
 		add(new ChiRestaurant("광한루", "02-222-4444", "월곡동", 900, 2200, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "광한루");
@@ -32,50 +34,50 @@ public class CustomerServiceImpl implements CustomerService{
 			new Review("집에가고싶어요", 4, "광한루");
 		}}, null));
 		add(new JapRestaurant("갓덴스시", "02-444-5555", "삼성동", 1100, 2100, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 1, "갓덴스시");
-			new Review("맛있어요", 3, "갓덴스시");
-			new Review("재미있어요", 2, "갓덴스시");
-			new Review("별로에요", 5, "갓덴스시");
+			add(new Review("아주 좋아요", 1, "갓덴스시"));
+			add(new Review("맛있어요", 3, "갓덴스시"));
+			add(new Review("재미있어요", 2, "갓덴스시"));
+			add(new Review("별로에요", 5, "갓덴스시"));//2.75
 		}}, null));
 		add(new JapRestaurant("코다차야", "02-888-7777", "쌍문동", 1700, 300, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 1, "코다차야");
-			new Review("맛있어요", 3, "코다차야");
-			new Review("재미있어요", 2, "코다차야");
+			add(new Review("아주 좋아요", 1, "코다차야"));
+			add(new Review("맛있어요", 3, "코다차야"));
+			add(new Review("재미있어요", 2, "코다차야"));//2
 		}}, null));
 		add(new KorRestaurant("이리오너라", "02-999-2699", "관철동", 700, 100, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 1, "이리오너라");
-			new Review("맛있어요", 3, "이리오너라");
-			new Review("재미있어요", 2, "이리오너라");
-			new Review("별로에요", 5, "이리오너라");
-			new Review("집에가고싶어요", 4, "이리오너라");
-			new Review("집에가고싶어요", 3, "이리오너라");
+			add(new Review("아주 좋아요", 1, "이리오너라"));
+			add(new Review("맛있어요", 3, "이리오너라"));
+			add(new Review("재미있어요", 2, "이리오너라"));
+			add(new Review("별로에요", 5, "이리오너라"));
+			add(new Review("집에가고싶어요", 4, "이리오너라"));
+			add(new Review("집에가고싶어요", 3, "이리오너라"));//3
 		}}, null));
 		add(new KorRestaurant("집밥", "02-465-6564", "관철동", 1000, 1100, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 1, "집밥");
-			new Review("맛있어요", 3, "집밥");
-			new Review("재미있어요", 2, "집밥");
-			new Review("별로에요", 2, "집밥");
-			new Review("집에가고싶어요", 3, "집밥");
+			add(new Review("아주 좋아요", 1, "집밥"));
+			add(new Review("맛있어요", 3, "집밥"));
+			add(new Review("재미있어요", 2, "집밥"));
+			add(new Review("별로에요", 2, "집밥"));
+			add(new Review("집에가고싶어요", 3, "집밥"));//2.2
 		}}, null));
 		add(new WesRestaurant("롤링파스타", "02-886-4569", "쌍문동", 0, 2400, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 1, "롤링파스타");
-			new Review("맛있어요", 3, "롤링파스타");
-			new Review("재미있어요", 2, "롤링파스타");
-			new Review("별로에요", 2, "롤링파스타");
-			new Review("집에가고싶어요", 3, "롤링파스타");
-			new Review("집에가고싶어요", 4, "롤링파스타");
-			new Review("집에가고싶어요", 5, "롤링파스타");
-			new Review("집에가고싶어요", 1, "롤링파스타");
-			new Review("집에가고싶어요", 1, "롤링파스타");
+			add(new Review("아주 좋아요", 1, "롤링파스타"));
+			add(new Review("맛있어요", 3, "롤링파스타"));
+			add(new Review("재미있어요", 2, "롤링파스타"));
+			add(new Review("별로에요", 2, "롤링파스타"));
+			add(new Review("집에가고싶어요", 3, "롤링파스타"));
+			add(new Review("집에가고싶어요", 4, "롤링파스타"));
+			add(new Review("집에가고싶어요", 5, "롤링파스타"));
+			add(new Review("집에가고싶어요", 1, "롤링파스타"));
+			add(new Review("집에가고싶어요", 1, "롤링파스타"));//2.44
 		}}, null));
 		add(new WesRestaurant("양식이 뭐가있을까", "02-444-7768", "무슨동", 500, 1500, new ArrayList<Review>(){{
-			new Review("아주 좋아요", 4, "양식이 뭐가있을까");
-			new Review("맛있어요", 3, "양식이 뭐가있을까");
-			new Review("재미있어요", 2, "양식이 뭐가있을까");
-			new Review("별로에요", 2, "양식이 뭐가있을까");
-			new Review("집에가고싶어요", 2, "양식이 뭐가있을까");
-			new Review("집에가고싶어요", 3, "양식이 뭐가있을까");
-			new Review("집에가고싶어요", 5, "양식이 뭐가있을까");
+			add(new Review("아주 좋아요", 4, "양식이 뭐가있을까"));
+			add(new Review("맛있어요", 3, "양식이 뭐가있을까"));
+			add(new Review("재미있어요", 2, "양식이 뭐가있을까"));
+			add(new Review("별로에요", 2, "양식이 뭐가있을까"));
+			add(new Review("집에가고싶어요", 2, "양식이 뭐가있을까"));
+			add(new Review("집에가고싶어요", 3, "양식이 뭐가있을까"));
+			add(new Review("집에가고싶어요", 5, "양식이 뭐가있을까"));//3
 		}}, null));
 	//메뉴 작성 추후에
 		
@@ -161,12 +163,16 @@ public class CustomerServiceImpl implements CustomerService{
 		switch(category) {
 		case "한식": 
 			for(Restaurant r : restaurants) { if(r instanceof KorRestaurant) t.add(r);}
+			break;
 		case "일식": 
 			for(Restaurant r : restaurants) { if(r instanceof JapRestaurant) t.add(r);}
+			break;
 		case "양식": 
 			for(Restaurant r : restaurants) { if(r instanceof WesRestaurant) t.add(r);}
+			break;
 		case "중식": 
 			for(Restaurant r : restaurants) { if(r instanceof ChiRestaurant) t.add(r);}
+			break;
 		}
 		return t;
 	}
@@ -213,16 +219,17 @@ public class CustomerServiceImpl implements CustomerService{
 			switch (customer.getFavorite()) {
 			case "한식": {
 				if(restaurant instanceof KorRestaurant) cRestaurants.add(restaurant);
+				break;
 			}case "중식": {
 				if(restaurant instanceof ChiRestaurant) cRestaurants.add(restaurant);
+				break;
 			}case "일식": {
 				if(restaurant instanceof JapRestaurant) cRestaurants.add(restaurant);
+				break;
 			}case "양식": {
 				if(restaurant instanceof WesRestaurant) cRestaurants.add(restaurant);
-			}
-			default:
-				throw new IllegalArgumentException("Unexpected value: ");
-			}
+				break;
+			}}
 		}
 		Collections.sort(cRestaurants, new Comparator<Restaurant>() {
 
@@ -238,10 +245,28 @@ public class CustomerServiceImpl implements CustomerService{
 	@Override
 	public List<Restaurant> recommendRestaurantByRating(Customer customer) {
 		List<Restaurant> raRestaurants = new ArrayList();
-		for(Restaurant restaurant : restaurants) {
-			
+		Map<Restaurant, Double> raRestaurant = new HashMap<Restaurant, Double>();
+		for(Restaurant r : restaurants) {
+			raRestaurant.put(r, 0.0);
 		}
-		return null;
+		for(int i = 0 ; i < restaurants.size() ; i++) {
+			int sum = 0;
+			for(Review r : restaurants.get(i).getReviews()) {
+				raRestaurant.put(restaurants.get(i), raRestaurant.get(restaurants.get(i))+r.getRating());
+				sum++;
+			}
+			raRestaurant.put(restaurants.get(i), raRestaurant.get(restaurants.get(i))/sum);
+		}
+		List<Restaurant> keySet = new ArrayList<>(raRestaurant.keySet());
+
+        // Value 값으로 오름차순 정렬
+        keySet.sort(new Comparator<Restaurant>() {
+            @Override
+            public int compare(Restaurant r1, Restaurant r2) {
+                return raRestaurant.get(r2).compareTo(raRestaurant.get(r1));
+            }
+        });
+		return keySet;
 	}
 
 	@Override
