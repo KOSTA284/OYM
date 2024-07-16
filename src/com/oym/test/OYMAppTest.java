@@ -13,7 +13,6 @@ public class OYMAppTest {
 	public static CustomerServiceImpl mgr = CustomerServiceImpl.getInstance();
 	
 	public static void charcterInfo(){
-		System.out.println("=============================");
 		
 		String[] O = {
             "  ####  ",
@@ -88,6 +87,7 @@ public class OYMAppTest {
 					register();//회원가입	
 					
 			}//mainSwith			
+
 		}//mainWhile
 	}//main
 
