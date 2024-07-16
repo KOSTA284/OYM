@@ -12,6 +12,7 @@ import com.oym.vo.ChiRestaurant;
 import com.oym.vo.Customer;
 import com.oym.vo.JapRestaurant;
 import com.oym.vo.KorRestaurant;
+import com.oym.vo.Menu;
 import com.oym.vo.Restaurant;
 import com.oym.vo.Review;
 import com.oym.vo.WesRestaurant;
@@ -20,69 +21,112 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	private ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(){{
 		add(new ChiRestaurant("만리성", "02-111-2222", "관철동", 1000, 2100, new ArrayList<Review>(){{
-			add(new Review("아주 좋아요", 1, "만리성"));
+			add(new Review("아주 좋아요", 5, "만리성"));
 			add(new Review("맛있어요", 3, "만리성"));
 			add(new Review("재미있어요", 2, "만리성"));
-			add(new Review("별로에요", 5, "만리성"));
-			add(new Review("집에가고싶어요", 5, "만리성"));//3.2
-		}}, null));
+			add(new Review("별로에요", 1, "만리성"));
+			add(new Review("재방문 의사 있음", 5, "만리성"));//3.2
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("짜장면", 10000, "메인 메뉴", "수타면"));
+			add(new Menu("짬뽕", 11000, "메인 메뉴", "얼큰한 맛"));
+		}}));
 		add(new ChiRestaurant("광한루", "02-222-4444", "월곡동", 900, 2200, new ArrayList<Review>(){{
-			add(new Review("아주 좋아요", 1, "광한루"));
+			add(new Review("아주 좋아요", 5, "광한루"));
 			add(new Review("맛있어요", 3, "광한루"));
 			add(new Review("재미있어요", 2, "광한루"));
 			add(new Review("별로에요", 5, "광한루"));
-			add(new Review("집에가고싶어요", 5, "광한루"));
-			add(new Review("집에가고싶어요", 4, "광한루"));
-		}}, null));
+			add(new Review("재방문 의사 있음", 5, "광한루"));
+			add(new Review("추천", 4, "광한루"));
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("꿔바로우", 15000, "메인 메뉴", "쫄깃한 튀김"));
+			add(new Menu("마라탕", 30000, "메인 메뉴", "맵기 선택 가능"));
+		}}));
 		add(new JapRestaurant("갓덴스시", "02-444-5555", "삼성동", 1100, 2100, new ArrayList<Review>(){{
 			add(new Review("아주 좋아요", 1, "갓덴스시"));
 			add(new Review("맛있어요", 3, "갓덴스시"));
 			add(new Review("재미있어요", 2, "갓덴스시"));
 			add(new Review("별로에요", 5, "갓덴스시"));//2.75
-		}}, null));
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("참치초밥", 20000, "main", "신선한 참치를 바로 잘라서 만든 초밥. 먹으면 갓덴이라고 외치게 됩니다."));
+			add(new Menu("광어초밥", 12000, "main", "신선한 광어를 바로 잘라서 만든 초밥. 먹으면 갓덴이라고 외치게 됩니다."));
+		}}));
 		add(new JapRestaurant("코다차야", "02-888-7777", "쌍문동", 1700, 300, new ArrayList<Review>(){{
 			add(new Review("아주 좋아요", 1, "코다차야"));
 			add(new Review("맛있어요", 3, "코다차야"));
 			add(new Review("재미있어요", 2, "코다차야"));//2
-		}}, null));
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("한식뷔페", 9000, "main", "다양한 한식을 배부르게 드세요."));
+			add(new Menu("사케", 100000, "drink", "맛 좋은 술을 드셔보세요."));
+		}}));
+
+		add(new JapRestaurant("갓덴스시", "02-444-5555", "삼성동", 1100, 2100, new ArrayList<Review>(){{
+			add(new Review("아주 좋아요", 5, "갓덴스시"));
+			add(new Review("맛있어요", 4, "갓덴스시"));
+			add(new Review("괜찮아요", 3, "갓덴스시"));
+			add(new Review("별로에요", 1, "갓덴스시"));//2.75
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("참치초밥", 20000, "main", "신선한 참치를 바로 잘라서 만든 초밥. 먹으면 갓덴이라고 외치게 됩니다."));
+			add(new Menu("광어초밥", 12000, "main", "신선한 광어를 바로 잘라서 만든 초밥. 먹으면 갓덴이라고 외치게 됩니다."));
+		}}));
+		add(new JapRestaurant("코다차야", "02-888-7777", "쌍문동", 1700, 300, new ArrayList<Review>(){{
+			add(new Review("아주 좋아요", 5, "코다차야"));
+			add(new Review("맛있어요", 4, "코다차야"));
+			add(new Review("별로에요", 1, "코다차야"));//2
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("한식뷔페", 9000, "main", "다양한 한식을 배부르게 드세요."));
+			add(new Menu("사케", 100000, "drink", "맛 좋은 술을 드셔보세요."));
+		}}));
 		add(new KorRestaurant("이리오너라", "02-999-2699", "관철동", 700, 100, new ArrayList<Review>(){{
-			add(new Review("아주 좋아요", 1, "이리오너라"));
-			add(new Review("맛있어요", 3, "이리오너라"));
+			add(new Review("너무 짜요", 1, "이리오너라"));
+			add(new Review("양이 많아요", 3, "이리오너라"));
 			add(new Review("재미있어요", 2, "이리오너라"));
-			add(new Review("별로에요", 5, "이리오너라"));
-			add(new Review("집에가고싶어요", 4, "이리오너라"));
-			add(new Review("집에가고싶어요", 3, "이리오너라"));//3
-		}}, null));
-		add(new KorRestaurant("집밥", "02-465-6564", "관철동", 1000, 1100, new ArrayList<Review>(){{
-			add(new Review("아주 좋아요", 1, "집밥"));
-			add(new Review("맛있어요", 3, "집밥"));
-			add(new Review("재미있어요", 2, "집밥"));
-			add(new Review("별로에요", 2, "집밥"));
-			add(new Review("집에가고싶어요", 3, "집밥"));//2.2
-		}}, null));
+			add(new Review("식권도 샀어요", 5, "이리오너라"));
+			add(new Review("한식뷔페 짱", 4, "이리오너라"));
+			add(new Review("맛있음", 3, "이리오너라"));//3
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("삼겹김치찌개", 9500, "main", "이거 아주 죽여줍니다. 엄청 맛있어요."));
+			add(new Menu("꿀막걸리", 3500, "drink", "둘이 먹다가 하나가 죽어요."));
+		}}));
+		add(new KorRestaurant("1992 덮밥&짜글이 강남본점", "02-465-6564", "관철동", 1000, 1100, new ArrayList<Review>(){{
+			add(new Review("흠.....", 1, "1992 덮밥&짜글이 강남본점"));
+			add(new Review("짜글이 지존", 3, "1992 덮밥&짜글이 강남본점"));
+			add(new Review("짜요", 2, "1992 덮밥&짜글이 강남본점"));
+			add(new Review("싱거워요", 2, "1992 덮밥&짜글이 강남본점"));
+			add(new Review("짜글이가 맛있음", 3, "1992 덮밥&짜글이 강남본점"));//2.2
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("전주비빔밥", 12500, "main", "전주에서만 맛볼수있던 전주비빕밥"));
+			add(new Menu("전라도식 고추장볶음", 7900, "side", "고소한 맛의 고기에 ㅁ약고추장 소스를 넣은 존맛탱"));
+		}}));
 		add(new WesRestaurant("롤링파스타", "02-886-4569", "쌍문동", 0, 2400, new ArrayList<Review>(){{
 			add(new Review("아주 좋아요", 1, "롤링파스타"));
 			add(new Review("맛있어요", 3, "롤링파스타"));
-			add(new Review("재미있어요", 2, "롤링파스타"));
-			add(new Review("별로에요", 2, "롤링파스타"));
-			add(new Review("집에가고싶어요", 3, "롤링파스타"));
-			add(new Review("집에가고싶어요", 4, "롤링파스타"));
-			add(new Review("집에가고싶어요", 5, "롤링파스타"));
-			add(new Review("집에가고싶어요", 1, "롤링파스타"));
-			add(new Review("집에가고싶어요", 1, "롤링파스타"));//2.44
-		}}, null));
-		add(new WesRestaurant("양식이 뭐가있을까", "02-444-7768", "무슨동", 500, 1500, new ArrayList<Review>(){{
-			add(new Review("아주 좋아요", 4, "양식이 뭐가있을까"));
-			add(new Review("맛있어요", 3, "양식이 뭐가있을까"));
-			add(new Review("재미있어요", 2, "양식이 뭐가있을까"));
-			add(new Review("별로에요", 2, "양식이 뭐가있을까"));
-			add(new Review("집에가고싶어요", 2, "양식이 뭐가있을까"));
-			add(new Review("집에가고싶어요", 3, "양식이 뭐가있을까"));
-			add(new Review("집에가고싶어요", 5, "양식이 뭐가있을까"));//3
-		}}, null));
-	//메뉴 작성 추후에
+			add(new Review("파스타가 정말 맛있어요", 2, "롤링파스타"));
+			add(new Review("가격이 너무 비싸요", 2, "롤링파스타"));
+			add(new Review("가성비가 좋아요", 3, "롤링파스타"));
+			add(new Review("파스타가 매워요", 4, "롤링파스타"));
+			add(new Review("피자가 정말 맛있어요", 5, "롤링파스타"));
+			add(new Review("맛없어요", 1, "롤링파스타"));
+			add(new Review("배물러요", 1, "롤링파스타"));//2.44
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("스테이크", 70000, "side", "부채살 스테이크"));
+			add(new Menu("알리오올리오", 15000, "drink", "매운맛"));		
+			
+		}}));
+		add(new WesRestaurant("아웃백", "02-444-7768", "화양동", 500, 1500, new ArrayList<Review>(){{
+			add(new Review("아주 좋아요", 4, "아웃백"));
+			add(new Review("매우 만족합니", 3, "아웃백"));
+			add(new Review("그냥 그래요", 2, "아웃백"));
+			add(new Review("스테이크가 참 맛있어요", 2, "아웃백"));
+			add(new Review("맛있어요", 2, "아웃백"));
+			add(new Review("맛없어요", 3, "아웃백"));
+			add(new Review("그냥 맛있어요", 5, "아웃백"));//3
+		}}, new ArrayList<Menu>() {{
+			add(new Menu("샐러드", 10000, "side", "연어샐러드입니다."));
+			add(new Menu("로제파스타", 15000, "drink", "깊은 풍미"));		
+			
+		}}));
 		
-	}	};
+	}};
 	private static CustomerServiceImpl service = new CustomerServiceImpl();
 	private CustomerServiceImpl(){ // 싱글톤 작성
 		
@@ -279,29 +323,5 @@ public class CustomerServiceImpl implements CustomerService{
 		});
 		return reRestaurants;
 	}
-
-	@Override
-	public List<Restaurant> recommendRestaurantByGender(Customer customer) {
-//		List<Restaurant> greRestaurants = new ArrayList();
-//		for(Restaurant restaurant : restaurants) {
-//			if(restaurant.get().equals(customer.getAddress())) aRestaurants.add(restaurant);
-//		}
-//		Collections.sort(aRestaurants, new Comparator<Restaurant>() {
-//
-//			@Override
-//			public int compare(Restaurant r1, Restaurant r2) {
-//				return r2.getName().compareTo(r1.getName());
-//			}
-//			
-//		});
-		return null;
-	}
-
-	@Override
-	public List<Restaurant> recommendRestaurantByAge(Customer customer) {
-		return null;
-	}
-
-
 
 }

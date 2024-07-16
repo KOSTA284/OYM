@@ -85,18 +85,5 @@ public interface CustomerService {
 	 * @return 작성된 리뷰가 많은 순으로 정렬된 맛집 리스트
 	 * */
 	List<Restaurant> recommendRestaurantByReviews();
-	/**
-	 * 리뷰를 작성한 사람들의 성별과 로그인된 사용자의 성별이 비슷한순으로 맛집을 추천해주는 기능
-	 * @param 로그인한 사용자의 정보
-	 * @return 리뷰를 작성한 사람들의 성별과 로그인된 사용자의 성별이 비슷한순으로 정렬된 맛집 리스트
-	 * */
-	List<Restaurant> recommendRestaurantByGender(Customer customer);
-	/**
-	 * 리뷰를 작성한 사람들의 연령대와 로그인된 사용자의 연령대가 비슷한순으로 맛집을 추천해주는 기능
-	 * @param 로그인한 사용자의 정보
-	 * @return 리뷰를 작성한 사람들의 연령대와 로그인된 사용자의 연령대가 비슷한순으로 정렬된 맛집 리스트
-	 * */
-	List<Restaurant> recommendRestaurantByAge(Customer customer);
-
 
 }
