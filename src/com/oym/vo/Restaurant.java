@@ -23,7 +23,6 @@ public abstract class Restaurant {
 		this.closeTime = closeTime;
 	}
 	
-	
 	public String getName() {
 		return name;
 	}
