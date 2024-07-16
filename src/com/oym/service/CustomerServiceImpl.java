@@ -1,10 +1,17 @@
 package com.oym.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import com.oym.vo.Chinese;
 import com.oym.vo.Customer;
+import com.oym.vo.Japanese;
+import com.oym.vo.Korean;
 import com.oym.vo.Restaurant;
+import com.oym.vo.Review;
+import com.oym.vo.Western;
 
 public class CustomerServiceImpl implements CustomerService{
 	
@@ -181,32 +188,93 @@ public class CustomerServiceImpl implements CustomerService{
 	}
 
 	@Override
-	public Restaurant[] recommendRestaurantByAddress(Customer customer) {
+	public List<Restaurant> recommendRestaurantByAddress(Customer customer) {
+		List<Restaurant> aRestaurants = new ArrayList();
+		for(Restaurant restaurant : restaurants) {
+			if(restaurant.getLocation().equals(customer.getAddress())) aRestaurants.add(restaurant);
+		}
+		Collections.sort(aRestaurants, new Comparator<Restaurant>() {
+
+			@Override
+			public int compare(Restaurant r1, Restaurant r2) {
+				return r2.getName().compareTo(r1.getName());
+			}
+			
+		});
+		return aRestaurants;
+	}
+
+	@Override
+	public List<Restaurant> recommendRestaurantByCategory(Customer customer) {
+		List<Restaurant> cRestaurants = new ArrayList();
+		for(Restaurant restaurant : restaurants) {
+			switch (customer.getFavorite()) {
+			case "한식": {
+				if(restaurant instanceof Korean) cRestaurants.add(restaurant);
+			}case "중식": {
+				if(restaurant instanceof Chinese) cRestaurants.add(restaurant);
+			}case "일식": {
+				if(restaurant instanceof Japanese) cRestaurants.add(restaurant);
+			}case "양식": {
+				if(restaurant instanceof Western) cRestaurants.add(restaurant);
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value: ");
+			}
+		}
+		Collections.sort(cRestaurants, new Comparator<Restaurant>() {
+
+			@Override
+			public int compare(Restaurant r1, Restaurant r2) {
+				return r2.getName().compareTo(r1.getName());
+			}
+			
+		});
+		return cRestaurants;
+	}
+
+	@Override
+	public List<Restaurant> recommendRestaurantByRating(Customer customer) {
+		List<Restaurant> raRestaurants = new ArrayList();
+		for(Restaurant restaurant : restaurants) {
+			
+		}
 		return null;
 	}
 
 	@Override
-	public Restaurant[] recommendRestaurantByCategory(Customer customer) {
+	public List<Restaurant> recommendRestaurantByReviews(Customer customer) {
+		List<Restaurant> reRestaurants = new ArrayList();
+		Collections.sort(reRestaurants, new Comparator<Restaurant>() {
+
+			@Override
+			public int compare(Restaurant r1, Restaurant r2) {
+				return r2.getMenus().size() - r2.getMenus().size();
+			}
+			
+		});
+		return reRestaurants;
+	}
+
+	@Override
+	public List<Restaurant> recommendRestaurantByGender(Customer customer) {
+//		List<Restaurant> greRestaurants = new ArrayList();
+//		for(Restaurant restaurant : restaurants) {
+//			if(restaurant.get().equals(customer.getAddress())) aRestaurants.add(restaurant);
+//		}
+//		Collections.sort(aRestaurants, new Comparator<Restaurant>() {
+//
+//			@Override
+//			public int compare(Restaurant r1, Restaurant r2) {
+//				return r2.getName().compareTo(r1.getName());
+//			}
+//			
+//		});
 		return null;
 	}
 
 	@Override
-	public Restaurant[] recommendRestaurantByRating(Customer customer) {
-		return null;
-	}
-
-	@Override
-	public Restaurant[] recommendRestaurantByReviews(Customer customer) {
-		return null;
-	}
-
-	@Override
-	public Restaurant[] recommendRestaurantByGender(Customer customer) {
-		return null;
-	}
-
-	@Override
-	public Restaurant[] recommendRestaurantByAge(Customer customer) {
+	public List<Restaurant> recommendRestaurantByAge(Customer customer) {
 		return null;
 	}
 
