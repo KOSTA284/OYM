@@ -1,6 +1,7 @@
 package com.oym.test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.oym.service.CustomerServiceImpl;
@@ -36,7 +37,7 @@ public class OYMAppTest {
 				System.out.println("PW 입력 : ");
 				String pw = sc.next();
 				
-				ArrayList<Customer> customerList = mgr.getAllCustomer();
+				List<Customer> customerList = mgr.getAllCustomer();
 				
 				Customer customer = null;
 				

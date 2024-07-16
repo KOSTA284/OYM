@@ -96,7 +96,9 @@ public class CustomerServiceImpl implements CustomerService{
 			new Customer("555", "df22","황선민","월곡동","한식", 20, true);
 		}
 	};
-	
+	public List<Customer> getAllCustomer(){
+		return customers;
+	}
 
 	@Override
 	public void register(Customer customer) {
