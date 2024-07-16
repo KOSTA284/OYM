@@ -1,14 +1,10 @@
 package com.oym.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import com.oym.vo.Chinese;
 import com.oym.vo.Customer;
-import com.oym.vo.Japanese;
-import com.oym.vo.Korean;
 import com.oym.vo.Restaurant;
-import com.oym.vo.Review;
-import com.oym.vo.Western;
 
 public class CustomerServiceImpl implements CustomerService{
 	
@@ -86,7 +82,15 @@ public class CustomerServiceImpl implements CustomerService{
 		return service;
 	}
 	
-	ArrayList<Customer> customers = new ArrayList<>();
+	private List<Customer> customers = new ArrayList<>() {
+		{
+			new Customer("111", "abc","김지남","쌍문동","한식", 30, true);
+			new Customer("222", "erf","박시우","삼성동","양식", 20, false);
+			new Customer("333", "adfd","신승현","관철동","중식", 50, true);
+			new Customer("444", "sdfd111","이찬영","월곡동","일식", 40, false);
+			new Customer("555", "df22","황선민","월곡동","한식", 20, true);
+		}
+	};
 	
 
 	@Override
