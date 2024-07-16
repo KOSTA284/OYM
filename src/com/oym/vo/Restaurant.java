@@ -76,7 +76,7 @@ public abstract class Restaurant {
 	@Override
 	public String toString() {
 		return "Restaurant [name=" + name + ", tel=" + tel + ", location=" + location + ", openTime=" + openTime
-				+ ", closeTime=" + closeTime + ", reviews=" + reviews.toString() + ", menus=" + menus.toString() + "]"+ "\n";
+				+ ", closeTime=" + closeTime + "\n";
 	}
 	
 
