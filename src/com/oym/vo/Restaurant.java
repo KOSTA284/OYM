@@ -24,6 +24,19 @@ public abstract class Restaurant {
 	}
 	
 	
+	public Restaurant(String name, String tel, String location, int openTime, int closeTime, ArrayList<Review> reviews,
+			ArrayList<Menu> menus) {
+		super();
+		this.name = name;
+		this.tel = tel;
+		this.location = location;
+		this.openTime = openTime;
+		this.closeTime = closeTime;
+		this.reviews = reviews;
+		this.menus = menus;
+	}
+
+
 	public String getName() {
 		return name;
 	}
