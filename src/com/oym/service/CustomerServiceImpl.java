@@ -5,25 +5,25 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.oym.vo.Chinese;
+import com.oym.vo.ChiRestaurant;
 import com.oym.vo.Customer;
-import com.oym.vo.Japanese;
-import com.oym.vo.Korean;
+import com.oym.vo.JapRestaurant;
+import com.oym.vo.KorRestaurant;
 import com.oym.vo.Restaurant;
 import com.oym.vo.Review;
-import com.oym.vo.Western;
+import com.oym.vo.WesRestaurant;
 
 public class CustomerServiceImpl implements CustomerService{
 	
 	private ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(){{
-		add(new Chinese("만리성", "02-111-2222", "관철동", 1000, 2100, new ArrayList<Review>(){{
+		add(new ChiRestaurant("만리성", "02-111-2222", "관철동", 1000, 2100, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "만리성");
 			new Review("맛있어요", 3, "만리성");
 			new Review("재미있어요", 2, "만리성");
 			new Review("별로에요", 5, "만리성");
 			new Review("집에가고싶어요", 5, "만리성");
 		}}, null));
-		add(new Chinese("광한루", "02-222-4444", "월곡동", 900, 2200, new ArrayList<Review>(){{
+		add(new ChiRestaurant("광한루", "02-222-4444", "월곡동", 900, 2200, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "광한루");
 			new Review("맛있어요", 3, "광한루");
 			new Review("재미있어요", 2, "광한루");
@@ -31,18 +31,18 @@ public class CustomerServiceImpl implements CustomerService{
 			new Review("집에가고싶어요", 5, "광한루");
 			new Review("집에가고싶어요", 4, "광한루");
 		}}, null));
-		add(new Japanese("갓덴스시", "02-444-5555", "삼성동", 1100, 2100, new ArrayList<Review>(){{
+		add(new JapRestaurant("갓덴스시", "02-444-5555", "삼성동", 1100, 2100, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "갓덴스시");
 			new Review("맛있어요", 3, "갓덴스시");
 			new Review("재미있어요", 2, "갓덴스시");
 			new Review("별로에요", 5, "갓덴스시");
 		}}, null));
-		add(new Japanese("코다차야", "02-888-7777", "쌍문동", 1700, 300, new ArrayList<Review>(){{
+		add(new JapRestaurant("코다차야", "02-888-7777", "쌍문동", 1700, 300, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "코다차야");
 			new Review("맛있어요", 3, "코다차야");
 			new Review("재미있어요", 2, "코다차야");
 		}}, null));
-		add(new Korean("이리오너라", "02-999-2699", "관철동", 700, 100, new ArrayList<Review>(){{
+		add(new KorRestaurant("이리오너라", "02-999-2699", "관철동", 700, 100, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "이리오너라");
 			new Review("맛있어요", 3, "이리오너라");
 			new Review("재미있어요", 2, "이리오너라");
@@ -50,14 +50,14 @@ public class CustomerServiceImpl implements CustomerService{
 			new Review("집에가고싶어요", 4, "이리오너라");
 			new Review("집에가고싶어요", 3, "이리오너라");
 		}}, null));
-		add(new Korean("집밥", "02-465-6564", "관철동", 1000, 1100, new ArrayList<Review>(){{
+		add(new KorRestaurant("집밥", "02-465-6564", "관철동", 1000, 1100, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "집밥");
 			new Review("맛있어요", 3, "집밥");
 			new Review("재미있어요", 2, "집밥");
 			new Review("별로에요", 2, "집밥");
 			new Review("집에가고싶어요", 3, "집밥");
 		}}, null));
-		add(new Western("롤링파스타", "02-886-4569", "쌍문동", 0, 2400, new ArrayList<Review>(){{
+		add(new WesRestaurant("롤링파스타", "02-886-4569", "쌍문동", 0, 2400, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 1, "롤링파스타");
 			new Review("맛있어요", 3, "롤링파스타");
 			new Review("재미있어요", 2, "롤링파스타");
@@ -68,7 +68,7 @@ public class CustomerServiceImpl implements CustomerService{
 			new Review("집에가고싶어요", 1, "롤링파스타");
 			new Review("집에가고싶어요", 1, "롤링파스타");
 		}}, null));
-		add(new Western("양식이 뭐가있을까", "02-444-7768", "무슨동", 500, 1500, new ArrayList<Review>(){{
+		add(new WesRestaurant("양식이 뭐가있을까", "02-444-7768", "무슨동", 500, 1500, new ArrayList<Review>(){{
 			new Review("아주 좋아요", 4, "양식이 뭐가있을까");
 			new Review("맛있어요", 3, "양식이 뭐가있을까");
 			new Review("재미있어요", 2, "양식이 뭐가있을까");
@@ -160,13 +160,13 @@ public class CustomerServiceImpl implements CustomerService{
 		ArrayList<Restaurant> t= new ArrayList<Restaurant>();
 		switch(category) {
 		case "한식": 
-			for(Restaurant r : restaurants) { if(r instanceof Korean) t.add(r);}
+			for(Restaurant r : restaurants) { if(r instanceof KorRestaurant) t.add(r);}
 		case "일식": 
-			for(Restaurant r : restaurants) { if(r instanceof Japanese) t.add(r);}
+			for(Restaurant r : restaurants) { if(r instanceof JapRestaurant) t.add(r);}
 		case "양식": 
-			for(Restaurant r : restaurants) { if(r instanceof Western) t.add(r);}
+			for(Restaurant r : restaurants) { if(r instanceof WesRestaurant) t.add(r);}
 		case "중식": 
-			for(Restaurant r : restaurants) { if(r instanceof Chinese) t.add(r);}
+			for(Restaurant r : restaurants) { if(r instanceof ChiRestaurant) t.add(r);}
 		}
 		return t;
 	}
@@ -212,13 +212,13 @@ public class CustomerServiceImpl implements CustomerService{
 		for(Restaurant restaurant : restaurants) {
 			switch (customer.getFavorite()) {
 			case "한식": {
-				if(restaurant instanceof Korean) cRestaurants.add(restaurant);
+				if(restaurant instanceof KorRestaurant) cRestaurants.add(restaurant);
 			}case "중식": {
-				if(restaurant instanceof Chinese) cRestaurants.add(restaurant);
+				if(restaurant instanceof ChiRestaurant) cRestaurants.add(restaurant);
 			}case "일식": {
-				if(restaurant instanceof Japanese) cRestaurants.add(restaurant);
+				if(restaurant instanceof JapRestaurant) cRestaurants.add(restaurant);
 			}case "양식": {
-				if(restaurant instanceof Western) cRestaurants.add(restaurant);
+				if(restaurant instanceof WesRestaurant) cRestaurants.add(restaurant);
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: ");

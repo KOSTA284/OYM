@@ -10,17 +10,15 @@ import com.oym.vo.Customer;
 public class OYMAppTest {
 
 	public static void main(String[] args) {
+		boolean isLogined;
 		Scanner sc = new Scanner(System.in);
 		
 		CustomerServiceImpl mgr = CustomerServiceImpl.getInstance();
 		//싱글톤
-		
 
 		mainWhile : while(true) //main 표시
 		{
-			System.out.println("");
 			System.out.println("=============================");
-			System.out.println("");
 			
 			String[] O = {
 	            "  ####  ",
@@ -58,20 +56,18 @@ public class OYMAppTest {
 	        
 			System.out.println("                  ");                     
 			System.out.println("           /\\_/\\");                     
-		  System.out.println("          ( o.o ) ");
-		  System.out.println("           > ^ <  ");
+		    System.out.println("          ( o.o ) ");
+		    System.out.println("           > ^ <  ");
 		    
-			System.out.println("");
 			System.out.println("=============================");
-			System.out.println("");
 			
-
 			String main = "";
 			main += "<<OYM : 맛집 검색 서비스>>\n";
 			main += "번호를 선택하세요\n";
 			main += "1 : 로그인\n";
 			main += "2 : 회원가입\n";
 			main += "0 : 종료\n";
+			main += "=============================";
 
 			System.out.println(main);
 			
@@ -94,8 +90,9 @@ public class OYMAppTest {
 					if(c.getId().equals(id) && c.getPw().equals(pw)) {
 						System.out.println("로그인 성공!");
 						customer = c;
+						isLogined = true;
 						
-						menuWhile : while(true)
+						menuWhile : while(isLogined)
 						{
 							String menu = "";
 							menu +=	"<<MENU>>\n";
@@ -236,7 +233,8 @@ public class OYMAppTest {
 						}//menuWhile
 					}//if
 				}//for
-			case 2:
-				System.out.println("<<회원가입>>");
-				System.out.println("ID 입력 : ");
-				String registerId = sc.next();
+
+			}//mainSwitch
+		}//mainWhile
+	}//main
+}//class
