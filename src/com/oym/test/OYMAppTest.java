@@ -171,16 +171,25 @@ public class OYMAppTest {
 										System.out.println(customer.toString());
 									case 2:
 										System.out.println("<<회원 탈퇴>>");
-										System.out.println("회원 정보가 수정되었습니다");
-
-										mgr.deleteCustomer(id);
-
+										System.out.println("탈퇴하실 회원의 ID 입력 : ");
+										String checkOutId = sc.next();
+										if(checkOutId.equals(customer.getId())) {
+											mgr.deleteCustomer(checkOutId);
+											System.out.println("[" + checkOutId + "] 님의 회원 탈퇴가 완료되었습니다");
+										}else {
+											System.out.println("ID를 다시 입력해 주세요"); //(수정 필요)
+										}
 									}//userSwitch
-								}//userwhile
+								}//userwhich
 							}//menuSwitch
 						}//menuWhile
 					}//if
 				}//for
+			case 2:
+				System.out.println("<<회원가입>>");
+				System.out.println("");
+
+
 			}//mainSwitch
 		}//mainWhile
 	}//main
