@@ -59,23 +59,6 @@ public class CustomerServiceImpl implements CustomerService{
 			add(new Menu("사케", 100000, "drink", "맛 좋은 술을 드셔보세요."));
 		}}));
 
-		add(new JapRestaurant("갓덴스시", "02-444-5555", "삼성동", 1100, 2100, new ArrayList<Review>(){{
-			add(new Review("아주 좋아요", 5, "갓덴스시"));
-			add(new Review("맛있어요", 4, "갓덴스시"));
-			add(new Review("괜찮아요", 3, "갓덴스시"));
-			add(new Review("별로에요", 1, "갓덴스시"));//2.75
-		}}, new ArrayList<Menu>() {{
-			add(new Menu("참치초밥", 20000, "main", "신선한 참치를 바로 잘라서 만든 초밥. 먹으면 갓덴이라고 외치게 됩니다."));
-			add(new Menu("광어초밥", 12000, "main", "신선한 광어를 바로 잘라서 만든 초밥. 먹으면 갓덴이라고 외치게 됩니다."));
-		}}));
-		add(new JapRestaurant("코다차야", "02-888-7777", "쌍문동", 1700, 300, new ArrayList<Review>(){{
-			add(new Review("아주 좋아요", 5, "코다차야"));
-			add(new Review("맛있어요", 4, "코다차야"));
-			add(new Review("별로에요", 1, "코다차야"));//2
-		}}, new ArrayList<Menu>() {{
-			add(new Menu("한식뷔페", 9000, "main", "다양한 한식을 배부르게 드세요."));
-			add(new Menu("사케", 100000, "drink", "맛 좋은 술을 드셔보세요."));
-		}}));
 		add(new KorRestaurant("이리오너라", "02-999-2699", "관철동", 700, 100, new ArrayList<Review>(){{
 			add(new Review("너무 짜요", 1, "이리오너라"));
 			add(new Review("양이 많아요", 3, "이리오너라"));
@@ -173,7 +156,7 @@ public class CustomerServiceImpl implements CustomerService{
 	public void updateCustomer(Customer user) {
 
 		for(int i=0; i<customers.size(); i++) {
-			if( customers.get(i).getId() == user.getId()) {
+			if( customers.get(i).getId().equals(user.getId())) {
 				customers.get(i).changeAddress(user.getAddress());
 				customers.get(i).changePw(user.getPw());
 				customers.get(i).changeFavorite(user.getFavorite());
@@ -187,7 +170,7 @@ public class CustomerServiceImpl implements CustomerService{
 	public void deleteCustomer(String id) {
 		
 		for(int i=0; i<customers.size(); i++) {
-			if(customers.get(i).getId() == id) {
+			if(customers.get(i).getId().equals(id)) {
 				customers.remove(i);
 				break;
 			}

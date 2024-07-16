@@ -123,4 +123,12 @@ public class Customer{
 		return isMan;
 	}
 	
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", pw=" + pw + ", name=" + name + ", address=" + address + ", favorite=" + favorite
+				+ ", age=" + age + ", isMan=" + isMan + "]";
+	}
+	
+
+	
 }

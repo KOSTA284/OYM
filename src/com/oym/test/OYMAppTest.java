@@ -130,6 +130,8 @@ public class OYMAppTest {
 					
 					menuSwitch : switch(selectMenu){
 					case 0:
+						sc.nextLine();
+						
 						return;
 						
 					case 1:
@@ -142,7 +144,7 @@ public class OYMAppTest {
 						
 					case 3:
 						updateCustomer(customer);
-						break;
+						return;
 					default : 	
 						System.out.println("유효하지 않은 입력입니다.");
 						break;	
@@ -184,7 +186,8 @@ public class OYMAppTest {
 				if(category.equals("한식") || category.equals("중식") || category.equals("일식") || category.equals("양식")) {
 					System.out.println(mgr.findRestaurantByCategory(category));
 				}else {
-					System.out.println("한식|중식|일식|양식 중에서 입력해 주세요"); //(수정 필요)
+					System.out.println("한식|중식|일식|양식 중에서 입력해 주세요");
+					
 				}
 					
 				break findSwitch;
@@ -310,7 +313,7 @@ public class OYMAppTest {
 				String changedPw = sc.next();
 				
 				System.out.println("수정할 선호하는 음식의 종류를 적어주세요 ex)한식, 일식, 양식, 중식 : ");
-				String changedFavorite = sc.next();
+				String changedFavorite = sc.next(); //4개로 제한하는 부분 수정
 				
 				mgr.updateCustomer(new Customer(customer.getId(),
 												changedPw,
@@ -323,7 +326,7 @@ public class OYMAppTest {
 				System.out.println("회원 정보가 수정되었습니다");
 				System.out.println("================== 수정 후 회원 정보 ==================");
 				System.out.println(customer.toString());
-				break;
+				return;
 
 			case 2:
 				System.out.println("<<회원 탈퇴>>");
@@ -332,8 +335,13 @@ public class OYMAppTest {
 				if(checkOutId.equals(customer.getId())) {
 					mgr.deleteCustomer(checkOutId);
 					System.out.println("[" + checkOutId + "] 님의 회원 탈퇴가 완료되었습니다");
+					sc.nextLine();
+					
+					
+					return;
+					
 				}else {
-					System.out.println("ID를 다시 입력해 주세요"); //(수정 필요)
+					System.out.println("ID를 다시 입력해 주세요");
 				}
 				break;
 				
@@ -397,7 +405,7 @@ public class OYMAppTest {
 						System.out.println(registerId + ", " +registerPassword + ", "+ registerName + ", " +  registerAddress + ", " + registerFavorite + ", " + registerAge + ", " +  registerGender);
 						
 						System.out.println("위의 내용이 맞으십니까?");
-						boolean isRightInfo = sc.nextBoolean();
+						boolean isRightInfo = sc.nextBoolean(); //수정해야 함
 						
 						if(isRightInfo == true) {
 							System.out.println("회원가입이 완료되었습니다.");
