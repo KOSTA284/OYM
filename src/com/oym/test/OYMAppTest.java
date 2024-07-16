@@ -11,6 +11,7 @@ public class OYMAppTest {
 
 	public static void main(String[] args) {
 		boolean isLogined;
+		
 		Scanner sc = new Scanner(System.in);
 		
 		CustomerServiceImpl mgr = CustomerServiceImpl.getInstance();
@@ -62,12 +63,13 @@ public class OYMAppTest {
 			System.out.println("=============================");
 			
 			String main = "";
+			main += "=============================\n";
 			main += "<<OYM : 맛집 검색 서비스>>\n";
 			main += "번호를 선택하세요\n";
 			main += "1 : 로그인\n";
 			main += "2 : 회원가입\n";
 			main += "0 : 종료\n";
-			main += "=============================";
+			main += "=============================\n";
 
 			System.out.println(main);
 			
@@ -95,12 +97,14 @@ public class OYMAppTest {
 						menuWhile : while(isLogined)
 						{
 							String menu = "";
+							menu += "=============================\n";
 							menu +=	"<<MENU>>\n";
 							menu +=	"번호를 선택하세요\n";
 							menu += "1 : 맛집 검색\n";
 							menu += "2 : 맛집 추천\n";
 							menu += "3 : 회원 정보 수정\n";
 							menu += "0 : 로그아웃\n";
+							menu += "=============================\n"; //(추가)
 
 							System.out.println(menu);
 							
@@ -110,9 +114,11 @@ public class OYMAppTest {
 							case 0:
 								break menuWhile;
 							case 1:
-								findWhile : while(true)
+								boolean isFind = true;
+								findWhile : while(isFind)
 								{
 									String find = "";
+									find += "=============================\n";
 									find +=	"<<맛집 검색>>\n";
 									find +=	"번호를 선택하세요\n";
 									find += "1 : 모든 맛집 보기\n";
@@ -120,6 +126,7 @@ public class OYMAppTest {
 									find += "3 : 장소로 맛집 검색 (~동)\n";
 									find += "4 : 식당 이름으로 맛집 검색\n";
 									find += "0 : MENU로 돌아가기\n";
+									find += "=============================\n";
 
 									System.out.println(find);
 									
@@ -127,7 +134,7 @@ public class OYMAppTest {
 									
 									findSwitch : switch(selectFind){
 									case 0:
-										break findWhile;
+										break menuSwitch;
 									case 1:
 										System.out.println("<<모든 맛집 보기>>");
 										System.out.println(mgr.findAllRestaurant());
@@ -141,7 +148,6 @@ public class OYMAppTest {
 										}else {
 											System.out.println("한식|중식|일식|양식 중에서 입력해 주세요"); //(수정 필요)
 										}
-											
 										break findSwitch;
 									case 3:
 										System.out.println("<<장소로 맛집 검색 (~동)>>");
@@ -158,14 +164,20 @@ public class OYMAppTest {
 									}//findSwitch
 								}//findWhile
 							case 2:
-								recommendWhile : while(true)
+								boolean isrecommend = true;
+								recommendWhile : while(isrecommend)
 								{
 									String recommend = "";
+									recommend += "=============================\n";
 									recommend +=	"<<맛집 추천>>\n";
 									recommend +=	"번호를 선택하세요\n";
 									recommend += "1 : 가까운 맛집 추천\n";
 									recommend += "2 : 가장 좋아하는 카테고리로 맛집 추천 (한식|중식|일식|양식)\n";
+									recommend += "3 : 별점 높은 순으로 맛집 추천\n";
+									recommend += "4 : 리뷰 많은 순으로 맛집 추천\n";
 									recommend += "0 : MENU로 돌아가기\n";
+									recommend += "=============================\n";
+
 
 									System.out.println(recommend);
 									
@@ -173,7 +185,7 @@ public class OYMAppTest {
 									
 									recommendSwitch : switch(selectrecommend){
 									case 0:
-										break recommendWhile;
+										break menuSwitch;
 									case 1:
 										System.out.println("<<가까운 맛집 추천>>");
 										System.out.println(mgr.recommendRestaurantByAddress(customer));
@@ -182,17 +194,29 @@ public class OYMAppTest {
 										System.out.println("<<가장 좋아하는 카테고리로 맛집 추천 (한식|중식|일식|양식)>>");
 										System.out.println(mgr.recommendRestaurantByCategory(customer));
 										break recommendSwitch;
+									case 3:
+										System.out.println("<<별점 높은 순으로 맛집 추천>>");
+										System.out.println(mgr.recommendRestaurantByRating(customer));
+										break recommendSwitch;
+									case 4:
+										System.out.println("<<리뷰 많은 순으로 맛집 추천>>");
+										System.out.println(mgr.recommendRestaurantByReviews(customer));
+										break recommendSwitch;
 									}//recommendSwitch
 								}//recommendWhile
 							case 3:
-								userwhile : while(true)
+								boolean isUser = true;
+								userwhile : while(isUser)
 								{
 									String user = "";
+									user += "=============================\n";
 									user +=	"<<회원정보 수정>>\n";
 									user +=	"번호를 선택하세요\n";
 									user += "1 : 정보 수정\n";
 									user += "2 : 회원 탈퇴\n";
 									user += "0 : MENU로 돌아가기\n";
+									user += "=============================\n";
+
 
 									System.out.println(user);
 									
@@ -216,7 +240,8 @@ public class OYMAppTest {
 										System.out.println("회원 정보가 수정되었습니다");
 										System.out.println("================== 수정 후 회원 정보 ==================");
 										System.out.println(customer.toString());
-                      
+										
+										break userSwitch;
 									case 2:
 										System.out.println("<<회원 탈퇴>>");
 										System.out.println("탈퇴하실 회원의 ID 입력 : ");
@@ -227,13 +252,13 @@ public class OYMAppTest {
 										}else {
 											System.out.println("ID를 다시 입력해 주세요"); //(수정 필요)
 										}
+										break userSwitch;
 									}//userSwitch
-								}//userwhich
+								}//userWhile
 							}//menuSwitch
 						}//menuWhile
 					}//if
 				}//for
-
 			}//mainSwitch
 		}//mainWhile
 	}//main
