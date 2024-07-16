@@ -15,8 +15,57 @@ public class OYMAppTest {
 		CustomerServiceImpl mgr = CustomerServiceImpl.getInstance();
 		//싱글톤
 		
+
 		mainWhile : while(true) //main 표시
 		{
+			System.out.println("");
+			System.out.println("=============================");
+			System.out.println("");
+			
+			String[] O = {
+	            "  ####  ",
+	            " #    # ",
+	            "#      #",
+	            "#      #",
+	            "#      #",
+	            " #    # ",
+	            "  ####  "
+	        };
+
+	        String[] Y = {
+	            "#     #",
+	            " #   # ",
+	            "  # #  ",
+	            "   #   ",
+	            "   #   ",
+	            "   #   ",
+	            "   #   "
+	        };
+
+	        String[] M = {
+	            "#     #",
+	            "##   ##",
+	            "# # # #",
+	            "#  #  #",
+	            "#     #",
+	            "#     #",
+	            "#     #"
+	        };
+
+	        for (int i = 0; i < O.length; i++) {
+	            System.out.println(O[i] + "  " + Y[i] + "  " + M[i]);
+	        }
+	        
+			System.out.println("                  ");                     
+			System.out.println("           /\\_/\\");                     
+		  System.out.println("          ( o.o ) ");
+		  System.out.println("           > ^ <  ");
+		    
+			System.out.println("");
+			System.out.println("=============================");
+			System.out.println("");
+			
+
 			String main = "";
 			main += "<<OYM : 맛집 검색 서비스>>\n";
 			main += "번호를 선택하세요\n";
@@ -170,19 +219,24 @@ public class OYMAppTest {
 										System.out.println("회원 정보가 수정되었습니다");
 										System.out.println("================== 수정 후 회원 정보 ==================");
 										System.out.println(customer.toString());
+                      
 									case 2:
 										System.out.println("<<회원 탈퇴>>");
-										System.out.println("회원 정보가 수정되었습니다");
-
-										mgr.deleteCustomer(id);
-
+										System.out.println("탈퇴하실 회원의 ID 입력 : ");
+										String checkOutId = sc.next();
+										if(checkOutId.equals(customer.getId())) {
+											mgr.deleteCustomer(checkOutId);
+											System.out.println("[" + checkOutId + "] 님의 회원 탈퇴가 완료되었습니다");
+										}else {
+											System.out.println("ID를 다시 입력해 주세요"); //(수정 필요)
+										}
 									}//userSwitch
-								}//userwhile
+								}//userwhich
 							}//menuSwitch
 						}//menuWhile
 					}//if
 				}//for
-			}//mainSwitch
-		}//mainWhile
-	}//main
-}//class
+			case 2:
+				System.out.println("<<회원가입>>");
+				System.out.println("ID 입력 : ");
+				String registerId = sc.next();
