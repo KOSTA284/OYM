@@ -1,6 +1,7 @@
 package com.oym.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.oym.vo.Customer;
 import com.oym.vo.Restaurant;
@@ -17,11 +18,11 @@ public interface CustomerService {
 	ArrayList<Restaurant> findRestaurantByLocation(String location);
 	ArrayList<Restaurant> findRestaurantByName(String name );
 	
-	Restaurant[] recommendRestaurantByAddress(Customer customer);
-	Restaurant[] recommendRestaurantByCategory(Customer customer);
-	Restaurant[] recommendRestaurantByRating(Customer customer);
-	Restaurant[] recommendRestaurantByReviews(Customer customer);
-	Restaurant[] recommendRestaurantByGender(Customer customer);
-	Restaurant[] recommendRestaurantByAge(Customer customer);
+	List<Restaurant> recommendRestaurantByAddress(Customer customer);
+	List<Restaurant> recommendRestaurantByCategory(Customer customer);
+	List<Restaurant> recommendRestaurantByRating(Customer customer);
+	List<Restaurant> recommendRestaurantByReviews(Customer customer);
+	List<Restaurant> recommendRestaurantByGender(Customer customer);
+	List<Restaurant> recommendRestaurantByAge(Customer customer);
 
 }

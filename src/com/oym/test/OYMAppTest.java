@@ -1,6 +1,7 @@
 package com.oym.test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.oym.service.CustomerServiceImpl;
@@ -14,8 +15,7 @@ public class OYMAppTest {
 		CustomerServiceImpl mgr = CustomerServiceImpl.getInstance();
 		//싱글톤
 		
-        
-		
+
 		mainWhile : while(true) //main 표시
 		{
 			System.out.println("");
@@ -58,13 +58,14 @@ public class OYMAppTest {
 	        
 			System.out.println("                  ");                     
 			System.out.println("           /\\_/\\");                     
-		    System.out.println("          ( o.o ) ");
-		    System.out.println("           > ^ <  ");
+		  System.out.println("          ( o.o ) ");
+		  System.out.println("           > ^ <  ");
 		    
 			System.out.println("");
 			System.out.println("=============================");
 			System.out.println("");
 			
+
 			String main = "";
 			main += "<<OYM : 맛집 검색 서비스>>\n";
 			main += "번호를 선택하세요\n";
@@ -85,7 +86,7 @@ public class OYMAppTest {
 				System.out.println("PW 입력 : ");
 				String pw = sc.next();
 				
-				ArrayList<Customer> customerList = mgr.getAllCustomer();
+				List<Customer> customerList = mgr.getAllCustomer();
 				
 				Customer customer = null;
 				
@@ -218,6 +219,7 @@ public class OYMAppTest {
 										System.out.println("회원 정보가 수정되었습니다");
 										System.out.println("================== 수정 후 회원 정보 ==================");
 										System.out.println(customer.toString());
+                      
 									case 2:
 										System.out.println("<<회원 탈퇴>>");
 										System.out.println("탈퇴하실 회원의 ID 입력 : ");
@@ -238,10 +240,3 @@ public class OYMAppTest {
 				System.out.println("<<회원가입>>");
 				System.out.println("ID 입력 : ");
 				String registerId = sc.next();
-				
-
-
-			}//mainSwitch
-		}//mainWhile
-	}//main
-}//class
