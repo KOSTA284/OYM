@@ -63,6 +63,16 @@ public abstract class Restaurant {
 	}
 
 
+	public ArrayList<Review> getReviews() {
+		return reviews;
+	}
+
+
+	public ArrayList<Menu> getMenus() {
+		return menus;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Restaurant [name=" + name + ", tel=" + tel + ", location=" + location + ", openTime=" + openTime
