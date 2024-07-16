@@ -195,13 +195,15 @@ public class OYMAppTest {
 				try {
 					System.out.println(mgr.findRestaurantByLocation(location));
 				} 
-				catch (NothingException e) {System.out.println();}
+				catch (NothingException e) {System.out.println("해당 장소에 있는 식당이 없습니다.");}
 				break findSwitch;
 			case 4:
 				System.out.println("<<식당 이름으로 맛집 검색>>");
 				System.out.println("검색할 식당 이름 입력 : ");
 				String name = sc.next();
+				try {
 				System.out.println(mgr.findRestaurantByName(name));
+				} catch(NothingException e) { System.out.println("해당 이름을 가진 식당이 없습니다.");}
 				break findSwitch;
 			default : 	
 				System.out.println("유효하지 않은 입력입니다.");
