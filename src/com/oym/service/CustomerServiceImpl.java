@@ -82,7 +82,7 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	private CustomerServiceImpl(){ }
 	
-	static CustomerServiceImpl getInstance() {
+	public static CustomerServiceImpl getInstance() {
 		return service;
 	}
 	
@@ -147,22 +147,13 @@ public class CustomerServiceImpl implements CustomerService{
 		ArrayList<Restaurant> t= new ArrayList<Restaurant>();
 		switch(category) {
 		case "한식": 
-			for(Restaurant r : restaurants) {
-				if(r instanceof Korean) t.add(r);
-			}
+			for(Restaurant r : restaurants) { if(r instanceof Korean) t.add(r);}
 		case "일식": 
-			for(Restaurant r : restaurants) {
-				if(r instanceof Japanese) t.add(r);
-			}
+			for(Restaurant r : restaurants) { if(r instanceof Japanese) t.add(r);}
 		case "양식": 
-			for(Restaurant r : restaurants) {
-				if(r instanceof Western) t.add(r);
-			}
+			for(Restaurant r : restaurants) { if(r instanceof Western) t.add(r);}
 		case "중식": 
-			for(Restaurant r : restaurants) {
-				if(r instanceof Chinese) t.add(r);
-			}
-			
+			for(Restaurant r : restaurants) { if(r instanceof Chinese) t.add(r);}
 		}
 		return t;
 	}
