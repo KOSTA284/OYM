@@ -78,7 +78,7 @@ public class OYMAppTest {
 					"=============================");
 
 			int selectMain = sc.nextInt(); //번호 입력받기
-			
+
 			mainSwitch : 
 			switch(selectMain){
 				case 0: 
@@ -90,6 +90,9 @@ public class OYMAppTest {
 					
 				case 2 : 
 					register();//회원가입	
+					break;
+				default : 	
+					System.out.println("유효하지 않은 입니다.");
 					break;
 					
 			}//mainSwith			
@@ -140,6 +143,9 @@ public class OYMAppTest {
 					case 3:
 						updateCustomer(customer);
 						break;
+					default : 	
+						System.out.println("유효하지 않은 입니다.");
+						break;	
 
 					}//menuSwitch
 				}//menuWhile
@@ -197,6 +203,9 @@ public class OYMAppTest {
 				String name = sc.next();
 				System.out.println(mgr.findRestaurantByName(name));
 				break findSwitch;
+			default : 	
+				System.out.println("유효하지 않은 입니다.");
+				break;	
 			}//findSwitch
 		}//findWhile
 	}
@@ -255,6 +264,10 @@ public class OYMAppTest {
 				System.out.println(mgr.recommendRestaurantByReviews());
 				break recommendSwitch;
 				
+			default : 	
+				System.out.println("유효하지 않은 입니다.");
+				break;
+				
 			}//recommendSwitch
 		}//recommendWhile
 	}
@@ -300,6 +313,7 @@ public class OYMAppTest {
 				System.out.println("회원 정보가 수정되었습니다");
 				System.out.println("================== 수정 후 회원 정보 ==================");
 				System.out.println(customer.toString());
+				break;
 
 			case 2:
 				System.out.println("<<회원 탈퇴>>");
@@ -311,6 +325,12 @@ public class OYMAppTest {
 				}else {
 					System.out.println("ID를 다시 입력해 주세요"); //(수정 필요)
 				}
+				break;
+				
+			default : 	
+				System.out.println("유효하지 않은 입니다.");
+				break;
+				
 			}//userSwitch
 		}//userwhich
 	}
@@ -375,6 +395,12 @@ public class OYMAppTest {
 							break registerprocesswhile;
 						}
 					}//registerprocesswhile
+					break;
+				
+				default : 	
+					System.out.println("유효하지 않은 입니다.");
+					break;
+					
 			}//registerSwitch
 		
 		}//registerwhile
