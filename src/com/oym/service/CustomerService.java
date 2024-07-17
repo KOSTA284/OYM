@@ -14,7 +14,7 @@ public interface CustomerService {
 	
 	/**
 	 * 회원가입을 하는 기능
-	 * @param Customer 회원가입할 사용자의 정보
+	 * @param customer 회원가입할 사용자의 정보
 	 * */
 
 	void register(Customer customer);
