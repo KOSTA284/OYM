@@ -159,6 +159,9 @@ public class OYMAppTest {
 		
 		findWhile : while(true)
 		{
+			sc.nextLine();
+			List<Restaurant> res = new ArrayList<Restaurant>();
+			int num = 1;
 			String find = "";
 			find +=	"<<맛집 검색>>\n";
 			find +=	"번호를 선택하세요\n";
@@ -177,26 +180,40 @@ public class OYMAppTest {
 				return;
 			case 1:
 				System.out.println("<<모든 맛집 보기>>");
-				System.out.println(mgr.findAllRestaurant());
+				res = mgr.findAllRestaurant();
+				for(Restaurant r : res) {
+					System.out.print((num++) + ". " + r);
+				}
+				System.out.println();
+				sc.nextLine();
 				break findSwitch;
 			case 2:
 				System.out.println("<<카테고리로 맛집 검색 (한식|중식|일식|양식)>>");
 				System.out.println("검색할 카테고리 입력 : ");
 				String category = sc.next();
 				if(category.equals("한식") || category.equals("중식") || category.equals("일식") || category.equals("양식")) {
-					System.out.println(mgr.findRestaurantByCategory(category));
+					res = mgr.findRestaurantByCategory(category);
+					for(Restaurant r : res) {
+						System.out.print((num++) + ". " + r);
+					}
+					System.out.println();
+					sc.nextLine();
 				}else {
 					System.out.println("한식|중식|일식|양식 중에서 입력해 주세요");
 					
 				}
-					
 				break findSwitch;
 			case 3:
 				System.out.println("<<장소로 맛집 검색 (~동)>>");
 				System.out.println("검색할 장소 입력 : ");
 				String location = sc.next();
 				try {
-					System.out.println(mgr.findRestaurantByLocation(location));
+					res = mgr.findRestaurantByLocation(location);
+					for(Restaurant r : res) {
+						System.out.print((num++) + ". " + r);
+					}
+					System.out.println();
+					sc.nextLine();
 				} 
 				catch (NothingException e) {System.out.println("해당 장소에 있는 식당이 없습니다.");}
 				break findSwitch;
@@ -205,7 +222,12 @@ public class OYMAppTest {
 				System.out.println("검색할 식당 이름 입력 : ");
 				String name = sc.next();
 				try {
-				System.out.println(mgr.findRestaurantByName(name));
+					res = mgr.findRestaurantByName(name);
+					for(Restaurant r : res) {
+						System.out.print((num++) + ". " + r);
+					}
+					System.out.println();
+					sc.nextLine();
 				} catch(NothingException e) { System.out.println("해당 이름을 가진 식당이 없습니다.");}
 				break findSwitch;
 			default : 	
@@ -220,6 +242,9 @@ public class OYMAppTest {
 		boolean isrecommend = true;
 		recommendWhile : while(isrecommend)
 		{
+			sc.nextLine();
+			List<Restaurant> res = new ArrayList<Restaurant>();
+			int num = 1;
 			String recommend = "";
 			recommend += "=============================\n";
 			recommend +=	"<<맛집 추천>>\n";
@@ -242,18 +267,28 @@ public class OYMAppTest {
 			case 1:
 				System.out.println("<< ["+ customer.getAddress()+ "]에서 가까운 맛집 추천 리스트 >>");
 				try {
-					System.out.println(mgr.recommendRestaurantByAddress(customer));
+					res = mgr.recommendRestaurantByAddress(customer);
+					for(Restaurant r : res) {
+						System.out.print((num++) + ". " + r);
+					}
+					System.out.println();
 				} catch (NothingException e) {
 					e.getMessage();
 				}
+				sc.nextLine();
 				break recommendSwitch;
 			case 2:
 				System.out.println("<< 내가 가장 좋아하는 ["  + customer.getFavorite()  +"] 맛집 추천 >>");
 				try {
-					System.out.println(mgr.recommendRestaurantByCategory(customer));
+					res = mgr.recommendRestaurantByCategory(customer);
+					for(Restaurant r : res) {
+						System.out.print((num++) + ". " + r);
+					}
+					System.out.println();
 				} catch (NothingException e) {
 					e.getMessage();
 				}
+				sc.nextLine();
 				break recommendSwitch;
 			case 3:
 				System.out.println("<< 리뷰 내 별점 높은 순으로 맛집 추천 >>");
@@ -268,13 +303,20 @@ public class OYMAppTest {
 		            }
 		        });
 		        for (Restaurant key : keySet) {
-		            System.out.print(key);
-		            System.out.println("별점 : " + String.format("%.1f", m.get(key)) );
+		            System.out.print((num++) + ". " + key);
+		            System.out.println("     별점 : " + String.format("%.1f", m.get(key)) );
 		        }
+		        sc.nextLine();
 				break recommendSwitch;
 			case 4:
 				System.out.println("<<리뷰 많은 순으로 맛집 추천>>");
-				System.out.println(mgr.recommendRestaurantByReviews());
+				res = mgr.recommendRestaurantByReviews();
+				for(Restaurant r : res) {
+					System.out.print((num++) + ". " + r);
+					System.out.println("     리뷰 수 : " + r.getReviews().size() + "개");
+				}
+				System.out.println();
+				sc.nextLine();
 				break recommendSwitch;
 				
 			default : 	
@@ -340,6 +382,7 @@ public class OYMAppTest {
 				System.out.println("회원 정보가 수정되었습니다");
 				System.out.println("================== 수정 후 회원 정보 ==================");
 				System.out.println(customer.toString());
+				sc.nextLine();
 				return;
 
 			case 2:
@@ -361,10 +404,12 @@ public class OYMAppTest {
 				}else {
 					System.out.println("ID를 다시 입력해 주세요");
 				}
+				sc.nextLine();
 				break;
 				
 			default : 	
 				System.out.println("유효하지 않은 입력입니다.");
+				sc.nextLine();
 				break;
 				
 			}//userSwitch
@@ -434,6 +479,7 @@ public class OYMAppTest {
 							break registerprocesswhile;
 						} 
 					}//registerprocesswhile
+					sc.nextLine();
 					break;
 				
 				default : 	
