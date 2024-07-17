@@ -12,12 +12,12 @@ public interface CustomerService {
 	
 	/**
 	 * 회원가입을 하는 기능
-	 * @param 회원가입할 사용자의 정보
+	 * @param Customer 회원가입할 사용자의 정보
 	 * */
 	void register(Customer customer);
 	/**
 	 * 특정한 회원을 찾아주는 기는
-	 * @param 찾고자 하는 사용자의 id
+	 * @param id 찾고자 하는 사용자의 id
 	 * @return 전달받은 id와 일치하는 사람의 회원정보
 	 * @throws NothingException 
 	 * */
@@ -25,13 +25,13 @@ public interface CustomerService {
 	/**
 	 * 사용자의 정보를 수정하는 기능
 	 * password와 address와 선호하는 category만 변경 가능
-	 * @param 수정할 사용자의 정보
+	 * @param user 수정할 사용자의 정보
 	 * @throws NothingException 
 	 * */
 	void updateCustomer(Customer user) throws NothingException;
 	/**
 	 * 사용자의 정보를 삭제하는 기능
-	 * @param 회원탈퇴할 사용자의 정보
+	 * @param id 회원탈퇴할 사용자의 정보
 	 * @throws NothingException 
 	 * */
 	void deleteCustomer(String id) throws NothingException;
@@ -45,20 +45,20 @@ public interface CustomerService {
 	/**
 	 * 사용자가 궁금해하는 category에 속하는 맛집들을 보여주는 기능
 	 * @return 사용자가 궁금해하는 category에 속하는 맛집들의 리스트
-	 * @param 사용자가 검색한 카테고리
+	 * @param category 사용자가 검색한 카테고리
 	 * */
 	ArrayList<Restaurant> findRestaurantByCategory(String category);
 	/**
 	 * 사용자가 궁금해하는 지역에 속하는 맛집들을 보여주는 기능
 	 * @return 사용자가 궁금해하는 지역에 속하는 맛집들의 리스트
-	 * @param 사용자가 검색한 지역
+	 * @param location 사용자가 검색한 지역
 	 * @throws NothingException 
 	 * */
 	ArrayList<Restaurant> findRestaurantByLocation(String location) throws NothingException;
 	/**
 	 * 사용자가 궁금해하는 가게이름이 포함된 맛집들을 보여주는 기능
 	 * @return 사용자가 궁금해하는 가게이름이 포함된 맛집들의 리스트
-	 * @param 사용자가 검색한 가게이름
+	 * @param name 사용자가 검색한 가게이름
 	 * @throws NothingException 
 	 * */
 	ArrayList<Restaurant> findRestaurantByName(String name ) throws NothingException;
@@ -66,14 +66,14 @@ public interface CustomerService {
 	
 	/**
 	 * 사용자가 회원가입했을때 입력한 주소 근처의 맛집들을 추천해주는 기능
-	 * @param 로그인한 사용자의 정보
+	 * @param customer 로그인한 사용자의 정보
 	 * @return 사용자 근처의 맛집 리스트
 	 * @throws NothingException 
 	 * */
 	List<Restaurant> recommendRestaurantByAddress(Customer customer) throws NothingException;
 	/**
 	 * 사용자가 선호하는 종류의 맛집들을 추천해주는 기능
-	 * @param 로그인한 사용자의 정보
+	 * @param customer 로그인한 사용자의 정보
 	 * @return 사용자가 선호하는 종류의 맛집 리스트
 	 * @throws NothingException 
 	 * */
