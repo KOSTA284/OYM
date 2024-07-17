@@ -1,9 +1,9 @@
 package com.oym.vo;
-
+/**
+ * 리뷰 내용
+ */
 public class Review {
-	/**
-	 * 리뷰 내용
-	 */
+	
 	private String comment;
 	/**
 	 * 별점

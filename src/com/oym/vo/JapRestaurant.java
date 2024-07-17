@@ -1,12 +1,12 @@
 package com.oym.vo;
 
 import java.util.ArrayList;
-
-public class JapRestaurant extends Restaurant{
 /**
  * @author OYM
  * Restaurant를 상속받은 자식 클래스
  */
+public class JapRestaurant extends Restaurant{
+
 	/**
 	 * 명시적 생성자
 	 * @param name 가게 이름
