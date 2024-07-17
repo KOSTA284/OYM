@@ -75,8 +75,9 @@ public abstract class Restaurant {
 
 	@Override
 	public String toString() {
-		return "Restaurant [이름: " + name + ", 전화번호: " + tel + ", 장소: " + location + ", 여는 시간: " + openTime/100+"시 "+ openTime%100+"분"
-				+ ", 닫는 시간: " + closeTime/100+"시"+closeTime%100+"분" + "\n";
+		
+		return "식당명: " + name + ", 전화번호: " + tel + ", 위치: " + location + ", 여는 시간: " + openTime/100+"시 "+ ((closeTime%100!=0) ? openTime%100+"분" : "")
+				+ ", 닫는 시간: " + closeTime/100+"시 "+((closeTime%100!=0) ? closeTime%100+"분" : "") + "\n";
 	}
 	
 
