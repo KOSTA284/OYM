@@ -155,34 +155,21 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public void updateCustomer(Customer user)throws NothingException{
-
-		boolean isExist = false;
-		for(int i=0; i<customers.size(); i++) {
-			if( customers.get(i).getId().equals(user.getId())) {
-				customers.get(i).changeAddress(user.getAddress());
-				customers.get(i).changePw(user.getPw());
-				customers.get(i).changeFavorite(user.getFavorite());
-				
-				isExist = true;
-				break;
-			}
-		}
-		if( !isExist) throw new NothingException("수정할 사용자가 존재하지 않습니다.");
+		
+		Customer c = findCustomer(user.getId());
+		
+		c.changeAddress(user.getAddress());
+		c.changePw(user.getPw());
+		c.changeFavorite(user.getFavorite());
 		
 	}
 
 	@Override
 	public void deleteCustomer(String id) throws NothingException{
 		
-		boolean isExist = false;
-		for(int i=0; i<customers.size(); i++) {
-			if(customers.get(i).getId().equals(id)) {
-				customers.remove(i);
-				break;
-			}
-		}
-		if( !isExist) throw new NothingException("수정할 사용자가 존재하지 않습니다.");
-		
+		Customer c = findCustomer(id);
+
+		customers.remove(c);
 	}
 
 	@Override
