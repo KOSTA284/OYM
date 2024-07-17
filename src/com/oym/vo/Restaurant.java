@@ -6,12 +6,26 @@ public abstract class Restaurant {
 	/**
 	 * 레스토랑의 정보를 저장하는 클래스
 	 */
+	/**
+	 * 가게 이름
+	 */
 	private String name;
-	private String tel; // 02-111-1111
-	private String location; //시빼고, 동만
-	private int openTime; // 1750 -> 17:50
+	/**
+	 * 가게 전화 번호 
+	 */
+	private String tel; 
+	/**
+	 * 가게 위치(동단위)
+	 */
+	private String location; 
+	/**
+	 * 가게 여는 시간
+	 */
+	private int openTime; 
+	/**
+	 * 가게 닫는 시간
+	 */
 	private int closeTime;
-	//private String category;// "한,중,일,양"
 	
 	private ArrayList<Review> reviews;
 	private ArrayList<Menu> menus;
