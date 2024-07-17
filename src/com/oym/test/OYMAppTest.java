@@ -315,13 +315,17 @@ public class OYMAppTest {
 				System.out.println("수정할 선호하는 음식의 종류를 적어주세요 ex)한식, 일식, 양식, 중식 : ");
 				String changedFavorite = sc.next(); //4개로 제한하는 부분 수정
 				
-				mgr.updateCustomer(new Customer(customer.getId(),
-												changedPw,
-												customer.getName(),
-												changedAddress,
-												changedFavorite,
-												customer.getAge(),
-												customer.isMan()));
+				try {
+					mgr.updateCustomer(new Customer(customer.getId(),
+													changedPw,
+													customer.getName(),
+													changedAddress,
+													changedFavorite,
+													customer.getAge(),
+													customer.isMan()));
+				} catch (NothingException e) {
+					e.getMessage();
+				}
 				
 				System.out.println("회원 정보가 수정되었습니다");
 				System.out.println("================== 수정 후 회원 정보 ==================");
@@ -333,7 +337,11 @@ public class OYMAppTest {
 				System.out.println("탈퇴하실 회원의 ID 입력 : ");
 				String checkOutId = sc.next();
 				if(checkOutId.equals(customer.getId())) {
-					mgr.deleteCustomer(checkOutId);
+					try {
+						mgr.deleteCustomer(checkOutId);
+					}catch (NothingException e) {
+						e.getMessage();
+					}
 					System.out.println("[" + checkOutId + "] 님의 회원 탈퇴가 완료되었습니다");
 					sc.nextLine();
 					

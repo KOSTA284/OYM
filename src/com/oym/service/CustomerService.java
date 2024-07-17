@@ -19,19 +19,22 @@ public interface CustomerService {
 	 * 특정한 회원을 찾아주는 기는
 	 * @param 찾고자 하는 사용자의 id
 	 * @return 전달받은 id와 일치하는 사람의 회원정보
+	 * @throws NothingException 
 	 * */
-	Customer findCustomer(String id);
+	Customer findCustomer(String id) throws NothingException;
 	/**
 	 * 사용자의 정보를 수정하는 기능
 	 * password와 address와 선호하는 category만 변경 가능
 	 * @param 수정할 사용자의 정보
+	 * @throws NothingException 
 	 * */
-	void updateCustomer(Customer user);
+	void updateCustomer(Customer user) throws NothingException;
 	/**
 	 * 사용자의 정보를 삭제하는 기능
 	 * @param 회원탈퇴할 사용자의 정보
+	 * @throws NothingException 
 	 * */
-	void deleteCustomer(String id);
+	void deleteCustomer(String id) throws NothingException;
 	
 	
 	/**
