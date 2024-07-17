@@ -412,14 +412,17 @@ public class OYMAppTest {
 						
 						System.out.println(registerId + ", " +registerPassword + ", "+ registerName + ", " +  registerAddress + ", " + registerFavorite + ", " + registerAge + ", " +  registerGender);
 						
-						System.out.println("위의 내용이 맞으십니까?");
-						boolean isRightInfo = sc.nextBoolean(); //수정해야 함
+						System.out.println("위의 내용이 맞으십니까?(맞으면 y, 틀리면 n)");
+						String check = sc.next();
+						
+						boolean isRightInfo = false;
+						if(check.equals("y")) isRightInfo = true;
 						
 						if(isRightInfo == true) {
 							System.out.println("회원가입이 완료되었습니다.");
 							mgr.register(new Customer(registerId, registerPassword, registerName, registerAddress, registerFavorite, registerAge, isMan));
 							break registerprocesswhile;
-						}
+						} 
 					}//registerprocesswhile
 					break;
 				
