@@ -122,7 +122,9 @@ public class Customer{
 	public boolean isMan() {
 		return isMan;
 	}
-	
+	/**
+	 * 고객의 정보를 리턴하는 기능
+	 */
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", pw=" + pw + ", name=" + name + ", address=" + address + ", favorite=" + favorite

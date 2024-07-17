@@ -316,7 +316,7 @@ public class OYMAppTest {
 				
 				while(flag) {
 				System.out.println("수정할 선호하는 음식의 종류를 적어주세요 ex)한식, 일식, 양식, 중식 : ");
-				changedFavorite = sc.next(); //4개로 제한하는 부분 수정
+				changedFavorite = sc.next(); 
 				if(changedFavorite.equals("한식") || changedFavorite.equals("일식") || 
 					changedFavorite.equals("양식") || changedFavorite.equals("중식")){
 				flag=false;
