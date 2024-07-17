@@ -1,10 +1,10 @@
 package com.oym.vo;
-
+/**
+ * @author OYM
+ * 고객의 정보를 저장하는 클래스
+ */
 public class Customer{
-	/**
-	 * @author OYM
-	 * 고객의 정보를 저장하는 클래스
-	 */
+	
 	/**
 	 * 아이디
 	 */

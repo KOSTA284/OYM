@@ -16,7 +16,9 @@ import com.oym.vo.Menu;
 import com.oym.vo.Restaurant;
 import com.oym.vo.Review;
 import com.oym.vo.WesRestaurant;
-
+/**
+ * CustomerService를 implements 받은 서비스 클래스
+ */
 public class CustomerServiceImpl implements CustomerService{
 	
 	private ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>(){{
@@ -128,6 +130,7 @@ public class CustomerServiceImpl implements CustomerService{
 			add(new Customer("555", "df22","황선민","월곡동","한식", 20, true));
 		}
 	};
+	
 	public List<Customer> getAllCustomer(){
 		return customers;
 	}

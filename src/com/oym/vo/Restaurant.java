@@ -1,11 +1,11 @@
 package com.oym.vo;
 
 import java.util.ArrayList;
-
+/**
+ * 레스토랑의 정보를 저장하는 클래스
+ */
 public abstract class Restaurant {
-	/**
-	 * 레스토랑의 정보를 저장하는 클래스
-	 */
+	
 	/**
 	 * 가게 이름
 	 */

@@ -7,13 +7,16 @@ import java.util.Map;
 import com.oym.exception.NothingException;
 import com.oym.vo.Customer;
 import com.oym.vo.Restaurant;
-
+/**
+ * CustomerServiceImpl의 선언부를 강제하는 인터페이스
+ */
 public interface CustomerService {
 	
 	/**
 	 * 회원가입을 하는 기능
 	 * @param Customer 회원가입할 사용자의 정보
 	 * */
+
 	void register(Customer customer);
 	/**
 	 * 특정한 회원을 찾아주는 기는
