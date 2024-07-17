@@ -125,8 +125,8 @@ public class Customer{
 	
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", pw=" + pw + ", name=" + name + ", address=" + address + ", favorite=" + favorite
-				+ ", age=" + age + ", isMan=" + isMan + "]";
+		return "id : " + id + ", pw : " + pw + ", 이름 : " + name + ", 주소 : " + address + ", 선호 카테고리 : " + favorite
+				+ ", 연령대 : " + age + ", 성별 : " + (isMan ? "남자" : "여자");
 	}
 	
 
