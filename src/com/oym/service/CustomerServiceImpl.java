@@ -158,9 +158,11 @@ public class CustomerServiceImpl implements CustomerService{
 		
 		Customer c = findCustomer(user.getId());
 		
-		c.changeAddress(user.getAddress());
-		c.changePw(user.getPw());
-		c.changeFavorite(user.getFavorite());
+		int idx = customers.indexOf(c);
+		
+		customers.get(idx).changeAddress(user.getAddress());
+		customers.get(idx).changePw(user.getPw());
+		customers.get(idx).changeFavorite(user.getFavorite());
 		
 	}
 
