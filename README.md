@@ -1,11 +1,8 @@
-# OYM
-Java mini 프로젝트로, 사용자에게 맛집을 검색/추천하는 서비스 입니다.
+# 🤩 OYM
+Java 프로젝트로, 사용자에게 맛집을 검색/추천하는 서비스 입니다. <br>
+맛집을 카테코리, 위치, 이름에 따라 검색할 수 있고, 맛집을 주소, 카테고리, 별점, 리뷰 순에 따라 추천해줍니다.
 
-
-<br>
-
-## :mega: Project Period
-- 2024.07.12 ~ 2024.07.16 / 4Days
+프로젝트 기간 : 2024.07.12 ~ 2024.07.16 (5일)
 
 <br>
 
@@ -24,9 +21,10 @@ Java mini 프로젝트로, 사용자에게 맛집을 검색/추천하는 서비�
 ## :books: 기술스택 
 <div>
   <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
-  <img src="https://img.shields.io/badge/JDBC-000000?style=for-the-badg&logo=JDBC&logoColor=white">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
+  <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white">
 </div>
+<br>
 <br>
 
 ## :pushpin: 클래스 UML
